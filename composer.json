@@ -1,0 +1,28 @@
+{
+    "name"       : "kwebservices/kws",
+    "description": "KRealm Web Services PHP Library",
+    "type"       : "library",
+    "keywords"   : ["krealm","web","services","kws"],
+    "license"    : "GPL-3.0-or-later",
+
+    "authors": [
+        {
+            "name": "David Plath",
+            "email": "webmaster@krealmwebservices.com.au"
+        }
+    ],
+
+    "require":
+    {
+        "composer/installers": "^1.8"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "KWS\\": "src/"
+        }
+    },
+
+    "minimum-stability ": "stable"
+
+}
