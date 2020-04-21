@@ -21,7 +21,7 @@ class Map
      *
      * @var string
      */
-    protected $title = ''
+    protected $title = '';
 
 
     /**
@@ -270,7 +270,7 @@ class Map
         $response = $client->request('GET', $url);
 
         // Return the result
-        return ($response->getStatusCode() == 200) $response->getBody() : '';
+        return ($response->getStatusCode() == 200) ? $response->getBody() : '';
     }
 
 
