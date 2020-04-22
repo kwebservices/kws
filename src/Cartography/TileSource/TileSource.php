@@ -275,20 +275,13 @@ class TileSource
      */
     public function getTile(int $x, int $y, int $zoom)
     {
-
         // Download the tile image
         $client   = new \GuzzleHttp\Client();
         $response = $client->get($this->getTileUrl(true));
-        $status   = $response->getStatusCode();
-        $image    = $response->getBody();
+        $result   = ($response->getStatusCode() == 200) ? $response->getBody() : false;
 
-        // Cache the tile image
-        if ($status == 200 AND !empty($image)) {
-        }
-
-        // Return the result
-        return ($status == 200 AND !empty($image)) ?
-            new Tile($x, $y, $zoom, $image) : false;
+        // Return a result
+        return (empty($result)) ? false : new Tile($x, $y, $zoom, $result);
     }
 
 
