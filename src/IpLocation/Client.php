@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\WebApi\IpLocation;
+namespace KWS\IpLocation;
 
 
 /**

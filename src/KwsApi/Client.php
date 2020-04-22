@@ -8,11 +8,11 @@
  * =============================================================================
  */
 
-namespace KWS\WebApi\ABNLookup;
+namespace KWS\KwsApi;
 
 
 /**
- * Class for working with the ABR's ABN lookup API
+ * Class for working with the KRealm Web Services API
  */
 class Client
 {

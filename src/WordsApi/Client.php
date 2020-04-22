@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\WebApi\WordsApi;
+namespace KWS\WordsApi;
 
 
 /**

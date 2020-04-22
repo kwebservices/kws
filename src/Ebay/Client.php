@@ -8,11 +8,11 @@
  * =============================================================================
  */
 
-namespace KWS\WebApi\Kws;
+namespace KWS\Ebay;
 
 
 /**
- * Class for working with the KRealm Web Services API
+ * Class for working with the EBay API
  */
 class Client
 {

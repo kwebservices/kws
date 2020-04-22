@@ -8,11 +8,11 @@
  * =============================================================================
  */
 
-namespace KWS\WebApi\Facebook;
+namespace KWS\ABNLookup;
 
 
 /**
- * Class for working with the Facebook API
+ * Class for working with the ABR's ABN lookup API
  */
 class Client
 {

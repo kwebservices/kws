@@ -8,11 +8,11 @@
  * =============================================================================
  */
 
-namespace KWS\WebApi\Overpass;
+namespace KWS\Facebook;
 
 
 /**
- * Class for working with the Overpass Turbo Web API
+ * Class for working with the Facebook API
  */
 class Client
 {

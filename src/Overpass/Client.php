@@ -8,11 +8,11 @@
  * =============================================================================
  */
 
-namespace KWS\WebApi\Ebay;
+namespace KWS\Overpass;
 
 
 /**
- * Class for working with the EBay API
+ * Class for working with the Overpass Turbo Web API
  */
 class Client
 {
