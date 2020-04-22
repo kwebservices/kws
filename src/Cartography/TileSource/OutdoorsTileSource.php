@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with Thunderforest's Pioneer Map
+ * Tile Source for Thunderforest's Outdoors Map
  *
- * @link https://www.thunderforest.com/maps/pioneer/
+ * @link https://www.thunderforest.com/maps/outdoors/
  */
-class PioneerMap extends Map
+class OutdoorsTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class PioneerMap extends Map
      *
      * @var string
      */
-    protected $title = 'Pioneer Map';
+    protected $title = 'Outdoors Map';
 
 
     /**
@@ -32,15 +32,7 @@ class PioneerMap extends Map
      *
      * @var string
      */
-    protected $name = 'pioneer';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = 'Thunderforest';
+    protected $name = 'outdoors';
 
 
     /**
@@ -64,14 +56,6 @@ class PioneerMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey={k}';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '80ff0c99daa44c90a2367708e6fd34fc';
+    protected $tileUrl = 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={k}';
 
 }

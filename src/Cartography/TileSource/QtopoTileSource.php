@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with Thunderforest's Transport Map
+ * Tile Source for the QTOPO Map
  *
- * @link https://www.thunderforest.com/maps/transport/
+ * @link http://qtopo.dnrm.qld.gov.au/Mobile/
  */
-class TransportMap extends Map
+class QtopoTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class TransportMap extends Map
      *
      * @var string
      */
-    protected $title = 'Transport Map';
+    protected $title = 'QLD Topographic Map';
 
 
     /**
@@ -32,15 +32,7 @@ class TransportMap extends Map
      *
      * @var string
      */
-    protected $name = 'transport';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = 'Thunderforest';
+    protected $name = 'qtopo';
 
 
     /**
@@ -48,7 +40,7 @@ class TransportMap extends Map
      *
      * @var int
      */
-    protected $minZoom = 1;
+    protected $minZoom = 4;
 
 
     /**
@@ -56,7 +48,7 @@ class TransportMap extends Map
      *
      * @var int
      */
-    protected $maxZoom = 16;
+    protected $maxZoom = 15;
 
 
     /**
@@ -64,14 +56,6 @@ class TransportMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={k}';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '80ff0c99daa44c90a2367708e6fd34fc';
+    protected $tileUrl = 'https://gisservices2.information.qld.gov.au/arcgis/rest/services/QTopo/QTopoBase_WebM/MapServer/tile/{z}/{y}/{x}';
 
 }

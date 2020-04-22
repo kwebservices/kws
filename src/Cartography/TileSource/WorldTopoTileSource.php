@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with the ArcGIS World Ocean Base Map
+ * Tile Source for ArcGIS World Topographic Map
  *
- * @link https://www.arcgis.com/home/item.html?id=1e126e7520f9466c9ca28b8f28b5e500
+ * @link https://www.arcgis.com/home/item.html?id=30e5fe3149c34df1ba922e6f5bbf808f
  */
-class WOceanMap extends Map
+class WorldTopoTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class WOceanMap extends Map
      *
      * @var string
      */
-    protected $title = 'World Ocean Base Map';
+    protected $title = 'World Topographic Map';
 
 
     /**
@@ -32,15 +32,7 @@ class WOceanMap extends Map
      *
      * @var string
      */
-    protected $name = 'wocean';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = 'ArcGIS';
+    protected $name = 'wtopo';
 
 
     /**
@@ -64,14 +56,6 @@ class WOceanMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '';
+    protected $tileUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
 
 }

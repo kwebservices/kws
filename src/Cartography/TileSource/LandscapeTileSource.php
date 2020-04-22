@@ -8,13 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with the Wikimedia Map
+ * Tile Source for Thunderforest's Landscape Map
+ *
+ * @link https://www.thunderforest.com/maps/landscape/
  */
-class WikimediaMap extends Map
+class LandscapeTileSource extends TileSource
 {
 
     /**
@@ -22,7 +24,7 @@ class WikimediaMap extends Map
      *
      * @var string
      */
-    protected $title = 'Wikimedia Map';
+    protected $title = 'Landscape Map';
 
 
     /**
@@ -30,15 +32,7 @@ class WikimediaMap extends Map
      *
      * @var string
      */
-    protected $name = 'wikimedia';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = '';
+    protected $name = 'landscape';
 
 
     /**
@@ -62,14 +56,6 @@ class WikimediaMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '';
+    protected $tileUrl = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey={k}';
 
 }

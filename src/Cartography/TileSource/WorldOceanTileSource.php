@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with Thunderforest's Open Cycle Map
+ * Tile Source for ArcGIS World Ocean Base Map
  *
- * @link https://www.thunderforest.com/maps/opencyclemap/
+ * @link https://www.arcgis.com/home/item.html?id=1e126e7520f9466c9ca28b8f28b5e500
  */
-class OpenCycleMap extends Map
+class WorldOceanTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class OpenCycleMap extends Map
      *
      * @var string
      */
-    protected $title = 'Open Cycle Map';
+    protected $title = 'World Ocean Base Map';
 
 
     /**
@@ -32,15 +32,7 @@ class OpenCycleMap extends Map
      *
      * @var string
      */
-    protected $name = 'ocm';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = 'Thunderforest';
+    protected $name = 'wocean';
 
 
     /**
@@ -56,7 +48,7 @@ class OpenCycleMap extends Map
      *
      * @var int
      */
-    protected $maxZoom = 16;
+    protected $maxZoom = 18;
 
 
     /**
@@ -64,15 +56,6 @@ class OpenCycleMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={k}';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '80ff0c99daa44c90a2367708e6fd34fc';
-
+    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}';
 
 }

@@ -8,13 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with the Open Topo Map
+ * Tile Source for Thunderforest's Open Cycle Map
+ *
+ * @link https://www.thunderforest.com/maps/opencyclemap/
  */
-class OpenTopoMap extends Map
+class OcmTileSource extends TileSource
 {
 
     /**
@@ -22,7 +24,7 @@ class OpenTopoMap extends Map
      *
      * @var string
      */
-    protected $title = 'Open Topographic Map';
+    protected $title = 'Open Cycle Map';
 
 
     /**
@@ -30,15 +32,7 @@ class OpenTopoMap extends Map
      *
      * @var string
      */
-    protected $name = 'otm';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = '';
+    protected $name = 'ocm';
 
 
     /**
@@ -62,14 +56,7 @@ class OpenTopoMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'https://a.tile.opentopomap.org/{z}/{x}/{y}.png';
+    protected $tileUrl = 'https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={k}';
 
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '';
 
 }

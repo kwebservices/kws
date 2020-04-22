@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with Thunderforest's Outdoors Map
+ * Tile Source for ArcGIS World Imagery Map
  *
- * @link https://www.thunderforest.com/maps/outdoors/
+ * @link https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9
  */
-class OutdoorsMap extends Map
+class WorldImageryTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class OutdoorsMap extends Map
      *
      * @var string
      */
-    protected $title = 'Outdoors Map';
+    protected $title = 'World Imagery Map';
 
 
     /**
@@ -32,15 +32,7 @@ class OutdoorsMap extends Map
      *
      * @var string
      */
-    protected $name = 'outdoors';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = 'Thunderforest';
+    protected $name = 'wimagery';
 
 
     /**
@@ -56,7 +48,7 @@ class OutdoorsMap extends Map
      *
      * @var int
      */
-    protected $maxZoom = 16;
+    protected $maxZoom = 18;
 
 
     /**
@@ -64,14 +56,6 @@ class OutdoorsMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={k}';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '80ff0c99daa44c90a2367708e6fd34fc';
+    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
 
 }

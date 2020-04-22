@@ -8,13 +8,13 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with the Open Street Map
+ * Tile Source for Open Topo Map
  */
-class OpenStreetMap extends Map
+class OtmTileSource extends TileSource
 {
 
     /**
@@ -22,7 +22,7 @@ class OpenStreetMap extends Map
      *
      * @var string
      */
-    protected $title = 'Open Street Map';
+    protected $title = 'Open Topographic Map';
 
 
     /**
@@ -30,15 +30,7 @@ class OpenStreetMap extends Map
      *
      * @var string
      */
-    protected $name = 'osm';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = '';
+    protected $name = 'otm';
 
 
     /**
@@ -62,15 +54,6 @@ class OpenStreetMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'http://192.168.0.130:80/tile/{z}/{x}/{y}.png';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '';
-
+    protected $tileUrl = 'https://a.tile.opentopomap.org/{z}/{x}/{y}.png';
 
 }

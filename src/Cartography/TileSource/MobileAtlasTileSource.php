@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with Thunderforest's Mobile Atlas Map
+ * Tile Source for Thunderforest's Mobile Atlas Map
  *
  * @link https://www.thunderforest.com/maps/mobile-atlas/
  */
-class MobAtlasMap extends Map
+class MobileAtlasTileSource extends TileSource
 {
 
     /**
@@ -33,14 +33,6 @@ class MobAtlasMap extends Map
      * @var string
      */
     protected $name = 'mobatlas';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = 'Thunderforest';
 
 
     /**
@@ -65,13 +57,5 @@ class MobAtlasMap extends Map
      * @var string
      */
     protected $tileUrl = 'https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey={k}';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '80ff0c99daa44c90a2367708e6fd34fc';
 
 }

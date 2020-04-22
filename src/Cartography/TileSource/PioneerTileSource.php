@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with the ArcGIS National Geographic Map
+ * Tile Source for Thunderforest's Pioneer Map
  *
- * @link https://www.arcgis.com/home/item.html?id=b9b1b422198944fbbd5250b3241691b6
+ * @link https://www.thunderforest.com/maps/pioneer/
  */
-class NatGeoMap extends Map
+class PioneerTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class NatGeoMap extends Map
      *
      * @var string
      */
-    protected $title = 'National Geographic Map';
+    protected $title = 'Pioneer Map';
 
 
     /**
@@ -32,15 +32,7 @@ class NatGeoMap extends Map
      *
      * @var string
      */
-    protected $name = 'natgeo';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = 'ArcGIS';
+    protected $name = 'pioneer';
 
 
     /**
@@ -64,14 +56,6 @@ class NatGeoMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '';
+    protected $tileUrl = 'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey={k}';
 
 }

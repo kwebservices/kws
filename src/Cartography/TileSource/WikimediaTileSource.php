@@ -8,15 +8,13 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Cartography\TileSource;
 
 
 /**
- * Class for working with the ArcGIS World Street Map
- *
- * @link https://www.arcgis.com/home/item.html?id=3b93337983e9436f8db950e38a8629af
+ * Tile Source for the Wikimedia Map
  */
-class WStreetMap extends Map
+class WikimediaTileSource extends TileSource
 {
 
     /**
@@ -24,7 +22,7 @@ class WStreetMap extends Map
      *
      * @var string
      */
-    protected $title = 'World Street Map';
+    protected $title = 'Wikimedia Map';
 
 
     /**
@@ -32,15 +30,7 @@ class WStreetMap extends Map
      *
      * @var string
      */
-    protected $name = 'wstreet';
-
-
-    /**
-     * Credits/attribution of the map publisher
-     *
-     * @var string
-     */
-    protected $attribution = 'ArcGIS';
+    protected $name = 'wikimedia';
 
 
     /**
@@ -56,7 +46,7 @@ class WStreetMap extends Map
      *
      * @var int
      */
-    protected $maxZoom = 18;
+    protected $maxZoom = 16;
 
 
     /**
@@ -64,14 +54,6 @@ class WStreetMap extends Map
      *
      * @var string
      */
-    protected $tileUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
-
-
-    /**
-     * An API key used for getting map tiles/info
-     *
-     * @var string
-     */
-    protected $apikey = '';
+    protected $tileUrl = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
 
 }
