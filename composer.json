@@ -15,7 +15,11 @@
     "require":
     {
         "composer/installers": "^1.8",
-        "guzzlehttp/guzzle": "^6.5"
+        "guzzlehttp/guzzle": "^6.5",
+        "dompdf/dompdf": "^0.8.5",
+        "scssphp/scssphp": "^1.0",
+        "league/csv": "^9.6",
+        "league/flysystem-ziparchive": "^1.0"
     },
 
     "autoload": {
