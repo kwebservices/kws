@@ -124,4 +124,49 @@ class Tile
     }
 
 
+    /**
+     * Get the X coordinate of the map tile
+     * -------------------------------------------------------------------------
+     * @return int
+     */
+    public function getX() : int
+    {
+        return $this->x;
+    }
+
+
+    /**
+     * Get the Y coordinate of the map tile
+     * -------------------------------------------------------------------------
+     * @return int
+     */
+    public function getY() : int
+    {
+        return $this->y;
+    }
+
+
+    /**
+     * Get the zoom level of the map tile
+     * -------------------------------------------------------------------------
+     * @return int
+     */
+    public function getZoom() : int
+    {
+        return $this->zoom;
+    }
+
+
+    /**
+     * Get the raw JPG or PNG map tile image
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function getImage() : string
+    {
+        return $this->image;
+    }
+
+
+
 }
