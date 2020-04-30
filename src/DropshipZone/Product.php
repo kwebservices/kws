@@ -43,7 +43,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getSku() : string;
+    public function getSku() : string
     {
         return $this->data['SKU'] ?? '';
     }
@@ -54,7 +54,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getCategory() : string;
+    public function getCategory() : string
     {
         return $this->data['Category'] ?? '';
     }
@@ -65,7 +65,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getTitle() : string;
+    public function getTitle() : string
     {
         return $this->data['Title'] ?? '';
     }
@@ -76,7 +76,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getQty() : string;
+    public function getQty() : string
     {
         return $this->data['Stock Qty'] ?? '';
     }
@@ -87,7 +87,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getStatus() : string;
+    public function getStatus() : string
     {
         return $this->data['Status'] ?? '';
     }
@@ -98,7 +98,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getPrice() : string;
+    public function getPrice() : string
     {
         return $this->data['price'] ?? '';
     }
@@ -109,7 +109,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getRrp() : string;
+    public function getRrp() : string
     {
         return $this->data['RrpPrice'] ?? '';
     }
@@ -120,7 +120,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getVic() : string;
+    public function getVic() : string
     {
         return $this->data['VIC'] ?? '';
     }
@@ -131,7 +131,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getNsw() : string;
+    public function getNsw() : string
     {
         return $this->data['NSW'] ?? '';
     }
@@ -142,7 +142,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getSa() : string;
+    public function getSa() : string
     {
         return $this->data['SA'] ?? '';
     }
@@ -153,7 +153,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getQld() : string;
+    public function getQld() : string
     {
         return $this->data['QLD'] ?? '';
     }
@@ -164,7 +164,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getTas() : string;
+    public function getTas() : string
     {
         return $this->data['TAS'] ?? '';
     }
@@ -175,7 +175,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getWa() : string;
+    public function getWa() : string
     {
         return $this->data['WA'] ?? '';
     }
@@ -186,7 +186,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getNt() : string;
+    public function getNt() : string
     {
         return $this->data['NT'] ?? '';
     }
@@ -197,7 +197,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getBulky() : string;
+    public function getBulky() : string
     {
         return $this->data['bulky item'] ?? '';
     }
@@ -208,7 +208,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getDiscontinued() : string;
+    public function getDiscontinued() : string
     {
         return $this->data['Discontinued'] ?? '';
     }
@@ -219,7 +219,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getEan() : string;
+    public function getEan() : string
     {
         return $this->data['EAN Code'] ?? '';
     }
@@ -230,7 +230,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getBrand() : string;
+    public function getBrand() : string
     {
         return $this->data['Brand'] ?? '';
     }
@@ -241,7 +241,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getWeight() : string;
+    public function getWeight() : string
     {
         return $this->data['Weight (kg)'] ?? '';
     }
@@ -252,7 +252,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getLength() : string;
+    public function getLength() : string
     {
         return $this->data['Carton Length (cm)'] ?? '';
     }
@@ -263,7 +263,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getWidth() : string;
+    public function getWidth() : string
     {
         return $this->data['Carton Width (cm)'] ?? '';
     }
@@ -274,7 +274,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getHeight() : string;
+    public function getHeight() : string
     {
         return $this->data['Carton Height (cm)'] ?? '';
     }
@@ -285,7 +285,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getDesc() : string;
+    public function getDesc() : string
     {
         return $this->data['Description'] ?? '';
     }
@@ -296,7 +296,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getColor() : string;
+    public function getColor() : string
     {
         return $this->data['Color'] ?? '';
     }
@@ -307,7 +307,7 @@ class Product
      * -------------------------------------------------------------------------
      * @return string[]
      */
-    public function getImages() : array;
+    public function getImages() : array
     {
         $result = [];
 
