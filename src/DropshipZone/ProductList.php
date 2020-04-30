@@ -97,7 +97,7 @@ class ProductList implements ArrayAccess, Iterator
      */
     public function current()
     {
-        return current($this->myArray);
+        return current($this->items);
     }
 
 
@@ -108,7 +108,7 @@ class ProductList implements ArrayAccess, Iterator
      */
     public function key()
     {
-        return key($this->myArray);
+        return key($this->items);
     }
 
 
@@ -119,7 +119,7 @@ class ProductList implements ArrayAccess, Iterator
      */
     public function next() : void
     {
-        next($this->myArray);
+        next($this->items);
     }
 
 
@@ -130,7 +130,7 @@ class ProductList implements ArrayAccess, Iterator
      */
     public function rewind() : void
     {
-        reset($this->myArray);
+        reset($this->items);
     }
 
 
@@ -141,7 +141,7 @@ class ProductList implements ArrayAccess, Iterator
      */
     public function valid () : bool
     {
-        return key($this->myArray) !== null;
+        return key($this->items) !== null;
     }
 
 
