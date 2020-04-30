@@ -65,7 +65,7 @@ class ProductList implements ArrayAccess, Iterator
      *
      * @return void
      */
-    public function offsetSet($offset , $value) : void
+    public function offsetSet($offset , $value)
     {
         // Make sure we have a Product object
         if (is_array($value)) {
@@ -84,7 +84,7 @@ class ProductList implements ArrayAccess, Iterator
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset) : void
+    public function offsetUnset($offset)
     {
         unset($this->items[$offset]);
     }
