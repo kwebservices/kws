@@ -265,26 +265,23 @@ class TileSource
 
 
     /**
-     * Get a map tile image
+     * Get a map tile. Returns false on failure
      * -------------------------------------------------------------------------
      * @param  int    $x        X tile coordinate
      * @param  int    $y        Y tile coordinate
      * @param  int    $zoom     Zoom level
      *
-     * @return string|bool
+     * @return \KWS\Cartography\Tile\Tile | bool
      */
-    public function getTile(int $x, int $y, int $zoom)
+    public function get(int $x, int $y, int $zoom)
     {
         // Download the tile image
         $client   = new \GuzzleHttp\Client();
         $response = $client->get($this->getTileUrl(true));
-        $result   = ($response->getStatusCode() == 200) ? $response->getBody() : false;
 
-        // Return a result
-        return (empty($result)) ? false : new Tile($x, $y, $zoom, $result);
+        // Return the result
+        return ($response->getStatusCode() == 200) ?
+            new Tile($x, $y, $zoom, $response->getBody()) : false;
     }
-
-
-
 
 }
