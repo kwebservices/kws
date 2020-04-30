@@ -15,12 +15,13 @@ use \KWS\DropshipZone\Product;
 use \League\Csv\Reader AS CsvReader;
 use \ArrayAccess;
 use \Iterator;
+use \Countable;
 
 
 /**
  * A Dropship Zone Product List
  */
-class ProductList implements ArrayAccess, Iterator
+class ProductList implements ArrayAccess, Iterator, Countable
 {
 
     /**
@@ -166,6 +167,17 @@ class ProductList implements ArrayAccess, Iterator
         foreach ($items as $item) {
             $this->items[] = new Product($item);
         }
+    }
+
+
+    /**
+     * Get the total number of products in the list
+     * -------------------------------------------------------------------------
+     * @return int
+     */
+    public function count() : int
+    {
+        return count($this->items);
     }
 
 
