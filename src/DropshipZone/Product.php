@@ -311,7 +311,7 @@ class Product
     {
         $result = [];
 
-        for ( $i=1 ; $i<=15 ; $i+) {
+        for ( $i=1 ; $i<=15 ; $i++) {
 
             $url = $this->data["Image $i"] ?? '';
 
