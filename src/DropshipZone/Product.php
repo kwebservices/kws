@@ -69,7 +69,7 @@ class Product
                     break;
 
                 default:
-                    $result = (string) $string;
+                    $result = (string) $result;
                     break;
             }
 
