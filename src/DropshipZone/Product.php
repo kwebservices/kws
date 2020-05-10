@@ -39,266 +39,322 @@ class Product
 
 
     /**
+     * Get a single item from the raw product data
+     * -------------------------------------------------------------------------
+     * @param  string   $key        Key/column to get data from
+     * @param  mixed    $default    Value to return iof no found
+     * @param  string   $type       Type of data to return
+     *
+     * @return mixed|null
+     */
+    protected function get(string $key, $default = null, $type = 'string')
+    {
+        if (isset($this->data[$key])) {
+
+            $result = $this->data[$key];
+
+            switch ($type) {
+                case 'int':
+                    $result = preg_replace('|[^0-9.]|i','', $result);
+                    $result = (int) $result;
+                    break;
+
+                case 'float':
+                    $result = preg_replace('|[^0-9.]|i','', $result);
+                    $result = (float) $result;
+                    break;
+
+                case 'bool':
+                    $result = (bool) $result;
+                    break;
+
+                default:
+                    $result = (string) $string;
+                    break;
+            }
+
+            return $result;
+
+        } else {
+            return $default;
+        }
+    }
+
+
+    /**
      * Get the product's SKU id
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getSku() : string
+    public function getSku() : ?string
     {
-        return $this->data['SKU'] ?? '';
+        return $this->get('SKU', NULL, 'string');
     }
 
 
     /**
      * Get the product's category
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getCategory() : string
+    public function getCategory() : ?string
     {
-        return $this->data['Category'] ?? '';
+        return $this->get('Category', NULL, 'string');
     }
 
 
     /**
      * Get the product's title
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getTitle() : string
+    public function getTitle() : ?string
     {
-        return $this->data['Title'] ?? '';
+        return $this->get('Title', NULL, 'string');
     }
 
 
     /**
      * Get the product's stock qty
      * -------------------------------------------------------------------------
-     * @return string
+     * @return int|null
      */
-    public function getQty() : string
+    public function getQty() : ?int
     {
-        return $this->data['Stock Qty'] ?? '';
+        return $this->get('Stock Qty', NULL, 'int');
     }
 
 
     /**
      * Get the product's status
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getStatus() : string
+    public function getStatus() : ?string
     {
-        return $this->data['Status'] ?? '';
+        return $this->get('Status', NULL, 'string');
     }
 
 
     /**
      * Get the product's wholesale price
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getPrice() : string
+    public function getPrice() : ?float
     {
-        return $this->data['price'] ?? '';
+        return $this->get('price', NULL, 'float');
     }
 
 
     /**
      * Get the product's RRP price
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getRrp() : string
+    public function getRrp() : ?float
     {
-        return $this->data['RrpPrice'] ?? '';
+        return $this->get('RrpPrice', NULL, 'float');
     }
 
 
     /**
      * Get the fee for shipping the product to VIC
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getVic() : string
+    public function getVic() : ?float
     {
-        return $this->data['VIC'] ?? '';
+        return $this->get('VIC', NULL, 'float');
     }
 
 
     /**
      * Get the fee for shipping the product to NSW
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getNsw() : string
+    public function getNsw() : ?float
     {
-        return $this->data['NSW'] ?? '';
+        return $this->get('NSW', NULL, 'float');
     }
 
 
     /**
      * Get the fee for shipping the product to SA
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getSa() : string
+    public function getSa() : ?float
     {
-        return $this->data['SA'] ?? '';
+        return $this->get('SA', NULL, 'float');
     }
 
 
     /**
      * Get the fee for shipping the product to QLD
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getQld() : string
+    public function getQld() : ?float
     {
-        return $this->data['QLD'] ?? '';
+        return $this->get('QLD', NULL, 'float');
     }
 
 
     /**
      * Get the fee for shipping the product to TAS
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getTas() : string
+    public function getTas() : ?float
     {
-        return $this->data['TAS'] ?? '';
+        return $this->get('TAS', NULL, 'float');
     }
 
 
     /**
      * Get the fee for shipping the product to WA
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getWa() : string
+    public function getWa() : ?float
     {
-        return $this->data['WA'] ?? '';
+        return $this->get('WA', NULL, 'float');
     }
 
 
     /**
-     * [getNt description]
+     * Get the fee for shipping the product to NT
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getNt() : string
+    public function getNt() : ?float
     {
-        return $this->data['NT'] ?? '';
+        return $this->get('NT', NULL, 'float');
     }
 
 
     /**
      * Get whether the product is classed as bulky
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getBulky() : string
+    public function getBulky() : ?string
     {
-        return $this->data['bulky item'] ?? '';
+        return $this->get('bulky item', NULL, 'string');
     }
 
 
     /**
      * Get whether the product is discontinued
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getDiscontinued() : string
+    public function getDiscontinued() : ?string
     {
-        return $this->data['Discontinued'] ?? '';
+        return $this->get('Discontinued', NULL, 'string');
     }
 
 
     /**
      * Get the product's EAN code
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getEan() : string
+    public function getEan() : ?string
     {
-        return $this->data['EAN Code'] ?? '';
+        return $this->get('EAN Code', NULL, 'string');
     }
 
 
     /**
      * Get the product's brand
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getBrand() : string
+    public function getBrand() : ?string
     {
-        return $this->data['Brand'] ?? '';
+        return $this->get('Brand', NULL, 'string');
     }
 
 
     /**
      * Get the product's weight in Kgs
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getWeight() : string
+    public function getWeight() : ?float
     {
-        return $this->data['Weight (kg)'] ?? '';
+        return $this->get('Weight (kg)', NULL, 'float');
     }
 
 
     /**
      * Get the product's length in cm
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getLength() : string
+    public function getLength() : ?float
     {
-        return $this->data['Carton Length (cm)'] ?? '';
+        return $this->get('Carton Length (cm)', NULL, 'float');
     }
 
 
     /**
      * Get the product's width in cm
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getWidth() : string
+    public function getWidth() : ?float
     {
-        return $this->data['Carton Width (cm)'] ?? '';
+        return $this->get('Carton Width (cm)', NULL, 'float');
     }
 
 
     /**
      * Get the product's height in cm
      * -------------------------------------------------------------------------
-     * @return string
+     * @return float|null
      */
-    public function getHeight() : string
+    public function getHeight() : ?float
     {
-        return $this->data['Carton Height (cm)'] ?? '';
+        return $this->get('Carton Height (cm)', NULL, 'float');
     }
 
 
     /**
      * Get the product's description
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getDesc() : string
+    public function getDesc() : ?string
     {
-        return $this->data['Description'] ?? '';
+        return $this->get('Description', NULL, 'string');
     }
 
 
     /**
      * Get the product's color
      * -------------------------------------------------------------------------
-     * @return string
+     * @return string|null
      */
-    public function getColor() : string
+    public function getColor() : ?string
     {
-        return $this->data['Color'] ?? '';
+        return $this->get('Color', NULL, 'string');
+    }
+
+
+    /**
+     * Get a single product image
+     * -------------------------------------------------------------------------
+     * @param   int     $index  The index of the image to get
+     *
+     * @return string|null
+     */
+    public function getImage(int $index) : ?string
+    {
+        return $this->get("Image $index", NULL, "string");
     }
 
 
@@ -311,11 +367,11 @@ class Product
     {
         $result = [];
 
-        for ( $i=1 ; $i<=15 ; $i++) {
+        for ( $i=1 ; $i<=15 ; $i++ ) {
 
-            $url = $this->data["Image $i"] ?? '';
+            $url = $this->getImage($i);
 
-            if (!empty($url)) {
+            if (!is_null($url)) {
                 $result[] = $url;
             }
 
@@ -334,7 +390,7 @@ class Product
      */
     public function downloadImage(int $index) : string
     {
-        return file_get_contents($this->data["Image $index"]);
+        return file_get_contents($this->getImage($index));
     }
 
 
