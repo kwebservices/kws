@@ -640,7 +640,7 @@ class Utils
         // Return the result body
         return $result->getBody();
     }
-    
+
 
     /**
      * Get the HTML/Javascript for displaying a reCAPTCHA 3
@@ -699,6 +699,31 @@ class Utils
     {
         $regex = "|^#?([0-9A-F]{3}|[0-9A-F]{6}|[0-9A-F]{8})$|i";
         return (bool) preg_match($regex, $value);
+    }
+
+
+    /**
+     * Create a basic Zip archive from a list files and return it's raw contents
+     * -------------------------------------------------------------------------
+     * @param  array  $files    File to add to the archive
+     *
+     * @return string
+     */
+    public static function createZipArchive(array $files) : string
+    {
+        // Create temporary archive
+        $filename = tempnam(sys_get_temp_dir());
+        $archive = new \ZipArchive();
+        $archive->open($filename, ZipArchive::CREATE);
+
+        // Add files to the archive
+        foreach($files as $file) {
+            $archive->addFromString(basename($file), file_get_contents($file));
+        }
+
+        // Get and return the archive's raw contents
+        $archive->close();
+        return file_get_contents($filename);
     }
 
 }
