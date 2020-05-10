@@ -13,6 +13,7 @@ namespace KWS;
 
 use \Dompdf\Dompdf;
 use \ScssPhp\ScssPhp\Compiler AS SCSSCompiler;
+use \ZipArchive;
 
 
 /**
@@ -712,8 +713,8 @@ class Utils
     public static function createZipArchive(array $files) : string
     {
         // Create temporary archive
-        $filename = tempnam(sys_get_temp_dir());
-        $archive = new \ZipArchive();
+        $filename = tempnam(sys_get_temp_dir(), 'kws');
+        $archive = new ZipArchive();
         $archive->open($filename, ZipArchive::CREATE);
 
         // Add files to the archive
