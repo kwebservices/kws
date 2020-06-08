@@ -11,12 +11,9 @@
 namespace KWS\Joomla\Controller\Site;
 
 
-use \Joomla\CMS\MVC\Controller\FormController;
-
-
 /**
- * Class for creating item based site/front-end controllers
+ * Base class for creating item based front-end controllers
  */
-class ItemSiteController extends FormController
+class ItemController extends GenericController
 {
 }

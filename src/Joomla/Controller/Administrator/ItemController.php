@@ -8,12 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\View\Admin;
+namespace KWS\Joomla\Controller\Administrator;
+
+
+use \Joomla\CMS\MVC\Controller\FormController;
 
 
 /**
- * Class for creating item based admin view classes
+ * Base class for creating item based back-end controllers
  */
-class ItemAdminView extends GenericAdminView
+class ItemController extends FormController
 {
 }

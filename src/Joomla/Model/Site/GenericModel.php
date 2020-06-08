@@ -8,12 +8,14 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\View\Site;
+namespace KWS\Joomla\Model\Site;
+
+use \Joomla\CMS\MVC\Model\BaseDatabaseModel;
 
 
 /**
- * Class for creating item based site/front-end view classes
+ * Base class for creating generic front-end models
  */
-class ItemSiteView extends GenericSiteView
+class GenericModel extends BaseDatabaseModel
 {
 }

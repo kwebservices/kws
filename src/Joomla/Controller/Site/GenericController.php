@@ -8,15 +8,14 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Model\Admin;
+namespace KWS\Joomla\Controller\Site;
 
-
-use \Joomla\CMS\MVC\Model\AdminModel;
+use \Joomla\CMS\MVC\Controller\BaseController;
 
 
 /**
- * Class for creating item based admin models
+ * Base class for creating generic front-end controllers
  */
-class ItemAdminModel extends AdminModel
+class GenericController extends BaseController
 {
 }

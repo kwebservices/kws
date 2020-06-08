@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Controller\Admin;
+namespace KWS\Joomla\Controller\Administrator;
 
 
 use \Joomla\CMS\MVC\Controller\BaseController;
 
 
 /**
- * Class for creating generic admin controllers
+ * Base class for creating generic back-end controllers
  */
-class GenericAdminController extends BaseController
-{    
+class GenericController extends BaseController
+{
 }

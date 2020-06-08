@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\View\Site;
+namespace KWS\Joomla\Controller\Administrator;
 
 
-use \Joomla\CMS\MVC\View\HtmlView;
+use \Joomla\CMS\MVC\Controller\AdminController;
 
 
 /**
- * Class for creating generic site/front-end view classes
+ * Base class for creating list based back-end controllers
  */
-class GenericSiteView extends HtmlView
+class ListController extends AdminController
 {
 }

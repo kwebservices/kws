@@ -8,15 +8,14 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Model\Admin;
+namespace KWS\Joomla\Model\Administrator;
 
-
-use \Joomla\CMS\MVC\Model\ListModel;
+use \Joomla\CMS\MVC\Model\BaseDatabaseModel;
 
 
 /**
- * Class for creating list based admin models
+ * Base class for creating generic back-end models
  */
-class ListAdminModel extends ListModel
+class GenericModel extends BaseDatabaseModel
 {
 }

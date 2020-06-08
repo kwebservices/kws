@@ -8,15 +8,12 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Controller\Admin;
-
-
-use \Joomla\CMS\MVC\Controller\AdminController;
+namespace KWS\Joomla\Module;
 
 
 /**
- * Class for creating list based admin controllers
+ * Helper/utility class for working with module extensions
  */
-class ListAdminController extends AdminController
+class ModuleHelper
 {
 }
