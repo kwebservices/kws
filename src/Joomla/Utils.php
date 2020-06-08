@@ -10,16 +10,12 @@
 
 namespace KWS\Joomla;
 
-
-use \Joomla\CMS\Component\ComponentHelper;
-use \Joomla\CMS\MVC\Model\BaseDatabaseModel;
-use \Joomla\CMS\Factory;
-use \Joomla\CMS\Router\Route;
-use \Joomla\CMS\Table\Table;
-use \Joomla\CMS\Language\Text;
-use \Joomla\CMS\Toolbar\ToolbarHelper;
-use \Joomla\CMS\HTML\HTMLHelper;
-
+use \KWS\Joomla\Helper\ComponentHelper;
+use \KWS\Joomla\Helper\DatabaseHelper;
+use \KWS\Joomla\Helper\MenuHelper;
+use \KWS\Joomla\Helper\UserHelper;
+use \KWS\Joomla\Helper\ToolBarHelper;
+use \KWS\Joomla\Helper\DocumentHelper;
 
 
 /**
@@ -36,20 +32,13 @@ class Utils
      * @param   string  $name   Optional name of the component (eg: com_content)
      *
      * @return  stdClass
+     *
+     * @deprecated Use \KWS\Joomla\Helper\ComponentHelper::getConfig() instead.
      */
     public static function getComponentConfig(string $name = '')
     {
-        // Initialise some local variables
-        $input = Factory::getApplication()->input;
-
-        // Check that we have a component name
-        $name = (empty($name)) ? $input->get('option') : $name ;
-
-        // Get the compontents golbal config
-        $result = ComponentHelper::getParams($name)->toObject();
-
-        // Return the result
-        return $result;
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return ComponentHelper::getConfig($name);
     }
 
 
@@ -62,22 +51,14 @@ class Utils
      * @param  boolean  $config     Config to pass to the model's constructor
      *
      * @return mixed
+     *
+     * @deprecated Use \KWS\Joomla\Helper\ComponentHelper::getModel() instead.
      */
     public static function getComponentModel(string $component, string $name,
         bool $admin = false, array $config = ['ignore_request' => true])
     {
-        // Add the location of the model to the list of include paths
-        $path   = ($admin) ? JPATH_ADMINISTRATOR : JPATH_SITE;
-        $path  .= "/components/$component/models";
-        $prefix = ucfirst(preg_replace('|^com_(.*)$|i', '$1Model' , $component));
-        BaseDatabaseModel::addIncludePath($path, $prefix);
-
-        // Get an instance of the given table
-        $result = BaseDatabaseModel::getInstance($name, $prefix, $config);
-
-        // Return the result
-        return $result;
-
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return ComponentHelper::getModel($component, $name, $admin, $config);
     }
 
 
@@ -91,21 +72,14 @@ class Utils
      * @param  boolean  $config     Config to pass to the table's constructor
      *
      * @return mixed
+     *
+     * @deprecated Use \KWS\Joomla\Helper\ComponentHelper::getTable() instead.
      */
     public static function getComponentTable(string $component, string $name,
         bool $admin = false, array $config = [])
     {
-        // Add the location of the table to the list of include paths
-        $path   = ($admin) ? JPATH_ADMINISTRATOR : JPATH_SITE;
-        $path  .= "/components/$component/tables";
-        $prefix = ucfirst(preg_replace('|^com_(.*)$|i', '$1Table' , $component));
-        Table::addIncludePath($path, $prefix);
-
-        // Get an instance of the given table
-        $result = Table::getInstance($name, $prefix, $config);
-
-        // Return the result
-        return $result;
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return ComponentHelper::getTable($component, $name, $admin, $config);
 
     }
 
@@ -117,13 +91,13 @@ class Utils
      * @param  bool             $die    Call die() after query has been dumped
      *
      * @return  void
+     *
+     * @deprecated Use \KWS\Joomla\Helper\DatabaseHelper::dumpQuery() instead.
      */
     public static function dumpDatabaseQuery($query, bool $die = true) : void
     {
-        $database = Factory::getDbo();
-        echo $database->replacePrefix((string) $query);
-
-        if ($die) die();
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        DatabaseHelper::dumpQuery($query, $die);
     }
 
 
@@ -133,64 +107,13 @@ class Utils
      * @param  string   $menuType   Name of the menu to get the items from
      *
      * @return array    An array of menu item objects
+     *
+     * @deprecated Use \KWS\Joomla\Helper\MenuHelper::dumpQuery() instead.
      */
-    public static function getMenuItems(string $menuType)
+    public static function getMenuItems(string $name)
     {
-        // Initialise some local variables
-        $application = Factory::getApplication();
-        $menu        = $application->getMenu();
-        $default     = $menu->getDefault();
-        $active      = $menu->getActive();
-        $active      = (empty($active)) ? $default : $active;
-        $result      = array();
-
-
-        // Get the list of menu items
-        $items = $menu->getItems('menutype', $menuType);
-
-
-        // Process and add additional information to each item.
-        foreach ($items as $k => $item) {
-
-            // Process the item based on it's type
-            switch($item->type) {
-
-                case 'alias':
-                    $item->link = 'index.php?Itemid=' . $item->params->get('aliasoptions');
-                    $item->route = Route::_($item->link);
-                    break;
-
-                case 'url' :
-                    break;
-
-                case 'header' :
-                    $item->route ='#';
-                    break;
-
-                case 'separator' :
-                    $item->route ='#';
-                    break;
-            }
-
-            // Check if the current item is the active item, or an alias of
-            // the active item. If so add this information to the item
-            // (for convience)
-            $item->active = ($item->id == $active->id) ||
-                ($item->params->get('aliasoptions') == $active->id);
-
-
-            // Check if the current item is the default item. If so add this
-            // information to the item (for convienance) and replace the route
-            if ($item->default = $item->id == $default->id) {
-                $item->route = '/';
-            }
-
-            // Add the item to the list of results
-            $result[$item->id] = $item;
-        }
-
-        // Return the result;
-        return $result;
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return MenuHelper::getMenuItems($name);
     }
 
 
@@ -200,43 +123,13 @@ class Utils
      * @param  array    $items  A flat list of menu items
      *
      * @return  array   The same list of menu items arranged into a hierarchy
+     *
+     * @deprecated Use \KWS\Joomla\Helper\MenuHelper::createMenuItemHierarchy() instead.
      */
     public static function createMenuItemHierarchy(array $items)
     {
-        // Initialise some local variables
-        $result = array();
-
-        // Define a recusrsive ananonomous function for adding child items
-        // to a menu item.
-        $addChildren = function ($node, $items) use ( &$addChildren )
-        {
-            $result = $node;
-            $result->children = array();
-
-            foreach ($items as $item) {
-                if ($item->parent_id == $result->id) {
-                    $result->children[] = $item;
-                }
-            }
-
-            if (!empty($result->children)) {
-                foreach ($result->children as &$child) {
-                    $child = $addChildren($child, $items);
-                }
-            }
-
-            return $result;
-        };
-
-        // Recursively add all top level menu items
-        foreach ($items as $item) {
-            if (empty($item->parent_id) OR $item->parent_id == 1) {
-                $result[] = $addChildren($item, $items);
-            }
-        }
-
-        // Return the result;
-        return $result;
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return MenuHelper::createMenuItemHierarchy($items);
     }
 
 
@@ -244,10 +137,13 @@ class Utils
      *  Get the currently active menu item
      * -------------------------------------------------------------------------
      * @return  object  The currently active menu item
+     *
+     * @deprecated Use \KWS\Joomla\Helper\MenuHelper::getActive() instead.
      */
     public static function getActiveMenuItem()
     {
-        return Factory::getApplication()->getMenu()->getActive();
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return MenuHelper::getActive();
     }
 
 
@@ -259,16 +155,14 @@ class Utils
      * @param string    $component  Component to which the item will link to
      *
      * @return  void
+     *
+     * @deprecated Use \KWS\Joomla\Helper\MenuHelper::addSidebarItem() instead.
      */
     public static function addSidebarItem(string $caption, string $view,
         string $component) : void
     {
-        // Prepare the sidebar item
-        $link    = "index.php?option=com_$component&view=$view";
-        $active  = Factory::getApplication()->input->get('view') == $view;
-
-        // Add the item to the sidebar
-        \JHtmlSidebar::addEntry(Text::_($caption), $link, $active);
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        MenuHelper::addSidebarItem($caption, $view, $component);
     }
 
 
@@ -280,16 +174,14 @@ class Utils
      * @param string    $tagName    A HTML tag name to enclose the title in
      *
      * @return  void
+     *
+     * @deprecated Use \KWS\Joomla\Helper\MenuHelper::addSidebarHeading() instead.
      */
     public static function addSidebarHeading(string $caption,
         string $headingTag = 'h4') : void
     {
-        // Prepare the sidebar heading
-        $heading = Text::_($caption);
-        $heading = "<$headingTag>$heading</$headingTag>";
-
-        // Add the heading to the sidebar
-        \JHtmlSidebar::addEntry($heading);
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        MenuHelper::addSidebarHeading($caption, $headingTag);
     }
 
 
@@ -301,13 +193,14 @@ class Utils
      * @param  mixed    $userId     Id of the user, or null for the current user
      *
      * @return bool
+     *
+     * @deprecated Use \KWS\Joomla\Helper\UserHelper::isAuthorised() instead.
      */
     public static function isAuthorised(string $action, string $asset,
         $userId = null)
     {
-        // Check if the user is authorised to perform the action on
-        // the given asset and return the result
-        return Factory::getUser($userId)->authorise($action, $asset);
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        UserHelper::isAuthorised($action, $asset, $userId);
     }
 
 
@@ -318,11 +211,13 @@ class Utils
      * @param   string  $default    A value to return if unsucessful
      *
      * @return  string
+     *
+     * @deprecated Use \KWS\Joomla\Helper\UserHelper::isAuthorised() instead.
      */
     public static function getFullName($userId = 0, string $default = '-')
     {
-        // Get and return the user's name
-        return (empty($userId)) ? $default : Factory::getUser($userId)->name;
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        UserHelper::getFullName($userId, $default);
     }
 
 
@@ -333,10 +228,13 @@ class Utils
      * @param string    $title  A new title
      *
      * @return  void
+     *
+     * @deprecated Use \KWS\Joomla\Helper\ToolbarHelper::setTitle() instead.
      */
     public static function setTitle(string $title) : void
     {
-        ToolBarHelper::title(Text::_($title));
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        ToolBarHelper::setTitle($title);
     }
 
 
@@ -348,22 +246,14 @@ class Utils
      * @param string    $controller     Controller to execute actions on
      *
      * @return  void
+     *
+     * @deprecated Use \KWS\Joomla\Helper\ToolbarHelper::addItemToolbarBtns() instead.
      */
     public static function addStandardItemToolbarBtns(string $component,
         string $controller) : void
     {
-        // Add apply, save and save2new buttons
-       if (static::isAuthorised('core.edit', $component)) {
-           ToolBarHelper::apply($controller . '.apply');
-           ToolBarHelper::save($controller . '.save');
-
-           if (static::isAuthorised('core.create',  $component)) {
-               ToolBarHelper::save2new($controller . '.save2new');
-           }
-       }
-
-       // Add a cancel button
-       ToolBarHelper::cancel($controller . '.cancel');
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        ToolBarHelper::addItemToolbarBtns($component, $controller);
     }
 
 
@@ -375,36 +265,14 @@ class Utils
      * @param string    $listController     Controller for executing list actions
      *
      * @return  void
+     *
+     * @deprecated Use \KWS\Joomla\Helper\ToolbarHelper::addListToolbarBtns() instead.
      */
     public static function addStandardListToolbarBtns(string $component,
-        string $itemController, string $listController) : void
+        string $itemController, string $itemController) : void
     {
-
-        // Add an new button
-       if (static::isAuthorised('core.create', $component)) {
-           ToolBarHelper::addNew($itemController . '.add');
-       }
-
-       // Add an Edit" button
-       if (static::isAuthorised('core.edit', $component)) {
-           ToolBarHelper::editList($itemController . '.edit');
-       }
-
-       // Add an publish and unpublish button
-       if (static::isAuthorised('core.edit.state', $component)) {
-
-           ToolBarHelper::publish($listController . '.publish',
-                'JTOOLBAR_PUBLISH', true);
-
-           ToolBarHelper::unpublish($listController . '.unpublish',
-                'JTOOLBAR_UNPUBLISH', true);
-       }
-
-       // Add a delete button
-       if (static::isAuthorised('core.delete', $component)) {
-           ToolBarHelper::deleteList('', $listController . '.delete');
-       }
-
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        ToolBarHelper::addListToolbarBtns($component, $itemController, $itemController);
     }
 
 
@@ -415,12 +283,13 @@ class Utils
      * @param string    $component  Component to show the button for.
      *
      * @return void
+     *
+     * @deprecated Use \KWS\Joomla\Helper\ToolbarHelper::addOptionsBtn() instead.
      */
     public static function addOptionsToolbarBtn(string $component) : void
     {
-        if (static::isAuthorised('core.admin', $component)) {
-          ToolBarHelper::preferences($component);
-      }
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        ToolBarHelper::addOptionsBtn($component);
     }
 
 
@@ -432,17 +301,14 @@ class Utils
      * @param  string   $default    Default value if date is '0'/invalid
      *
      * @return string   A more user friendly datetime string
+     *
+     * @deprecated Use \KWS\Joomla\Helper\DatabaseHelper::formatMysqlDateTime() instead.
      */
     public static function formatMysqlDateTime($dateTime, string
         $format = 'd/m/Y h:i:s A', string $default = '-')
     {
-        // If the value is '0' or invalid the return the default
-        if (empty($dateTime) OR ($dateTime == '0000-00-00 00:00:00')) {
-            return $default;
-        }
-
-        // Get and return the new value
-        return HTMLHelper::_('date', $dateTime, $format, true);
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return DatabaseHelper::formatMysqlDateTime($dateTime, $format, $default);
     }
 
 
@@ -451,23 +317,13 @@ class Utils
      * Get the current page title without a sitename prefix/suffix
      * -------------------------------------------------------------------------
      * @return string
+     *
+     * @deprecated Use \KWS\Joomla\Helper\DocumentHelper::getTitle() instead.
      */
     public static function getPageTitle()
     {
-        // Initialise some local variables
-        $document = Factory::getDocument();
-        $config   = Factory::getConfig();
-
-        // Get the current page title
-        $result = $document->getTitle();
-
-        // Strip the sitename if it has been added
-        $sitename = $config->get('sitename');
-        $result = str_replace(" - $sitename", "", $result);
-        $result = str_replace("$sitename - ", "", $result);
-
-        // Return the result
-        return $result;
+        trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
+        return DocumentHelper::getTitle();
     }
 
 }
