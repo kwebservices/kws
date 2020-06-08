@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Component;
 
 use \Joomla\CMS\Component\ComponentHelper AS JComponentHelper;
 use \Joomla\CMS\MVC\Model\BaseDatabaseModel;
@@ -19,7 +19,7 @@ use \Joomla\CMS\Table\Table;
 /**
  * Helper/utility class for working with component extensions
  */
-class ComponentHelper extends Helper
+class ComponentHelper
 {
 
     /**

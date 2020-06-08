@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\User;
 
 use \Joomla\CMS\Factory;
 
@@ -16,7 +16,7 @@ use \Joomla\CMS\Factory;
 /**
  * Helper/utility class for working Joomla's user system
  */
-class UserHelper extends Helper
+class UserHelper
 {
 
     /**

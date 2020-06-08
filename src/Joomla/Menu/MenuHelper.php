@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Menu;
 
 use \Joomla\CMS\Factory;
 use \Joomla\CMS\Router\Route;
@@ -18,7 +18,7 @@ use \Joomla\CMS\Language\Text;
 /**
  * Helper/utility class for working with Joomla's menu system
  */
-class MenuHelper extends Helper
+class MenuHelper
 {
 
     /**

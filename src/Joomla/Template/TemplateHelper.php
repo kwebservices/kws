@@ -8,12 +8,12 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Template;
 
 
 /**
- * Helper/utility class for working with Joomla forms
+ * Helper/utility class for working with template extensions
  */
-class DocumentHelper extends Helper
+class TemplateHelper
 {
 }

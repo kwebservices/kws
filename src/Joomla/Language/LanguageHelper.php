@@ -8,12 +8,12 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Language;
 
 
 /**
  * Helper/utility class for working with Joomla's language sub-system
  */
-class LanguageHelper extends Helper
+class LanguageHelper
 {
 }

@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Document;
 
 use \Joomla\CMS\Factory;
 
@@ -16,7 +16,7 @@ use \Joomla\CMS\Factory;
 /**
  * Helper/utility class for working with Joomla's document object
  */
-class DocumentHelper extends Helper
+class DocumentHelper
 {
 
     /**

@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Toolbar;
 
 use \Joomla\CMS\Toolbar\ToolbarHelper AS JToolBarHelper;
 use \Joomla\CMS\Language\Text;
@@ -17,7 +17,7 @@ use \Joomla\CMS\Language\Text;
 /**
  * Helper/utility class for working Joomla's toolbar system
  */
-class ToolbarHelper extends Helper
+class ToolbarHelper
 {
 
     /**

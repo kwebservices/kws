@@ -8,12 +8,12 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Library;
 
 
 /**
- * Bse class for all helper/utility classes
+ * Helper/utility class for working with library extensions
  */
-class Helper
-{    
+class LibraryHelper
+{
 }

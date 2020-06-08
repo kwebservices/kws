@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Database;
 
 use \Joomla\CMS\Factory;
 use \Joomla\CMS\HTML\HTMLHelper;
@@ -17,7 +17,7 @@ use \Joomla\CMS\HTML\HTMLHelper;
 /**
  * Helper/untility class for working Joomla's database system
  */
-class DatabaseHelper extends Helper
+class DatabaseHelper
 {
 
     /**
