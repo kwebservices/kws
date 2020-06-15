@@ -14,9 +14,9 @@ use \Joomla\Registry\Registry;
 
 
 /**
- * Helper/utility class for working with module extensions
+ * Base class for creating module helpers.
  */
-class ModuleHelper
+class Module
 {
 
     /**
