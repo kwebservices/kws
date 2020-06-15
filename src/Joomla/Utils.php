@@ -269,10 +269,10 @@ class Utils
      * @deprecated Use \KWS\Joomla\Helper\ToolbarHelper::addListToolbarBtns() instead.
      */
     public static function addStandardListToolbarBtns(string $component,
-        string $itemController, string $itemController) : void
+        string $itemController, string $listController) : void
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated', E_USER_DEPRECATED);
-        ToolBarHelper::addListToolbarBtns($component, $itemController, $itemController);
+        ToolBarHelper::addListToolbarBtns($component, $itemController, $listController);
     }
 
 
