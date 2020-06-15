@@ -34,21 +34,8 @@ class GenericView extends HtmlView
         $this->config   = ComponentHelper::getConfig();
         $this->menuitem = MenuHelper::getActive();
 
-        // Add component toolbar items
-        $this->addAdministratonToolbar();
-
         // Call and return the parent method
         return parent::display($tpl);
     }
-
-
-    /**
-     * Add items to the administration toolbar for this view
-     * -------------------------------------------------------------------------
-     */
-    protected function addAdministratonToolbar()
-    {
-    }
-
 
 }
