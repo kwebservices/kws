@@ -53,7 +53,7 @@ class DashboardModel extends GenericModel
 	protected function getServerStatistics()
 	{
 		//  Initalize some local variables
-		$result = new stdClass;
+		$result = new \stdClass();
 
 		// Add data to the result
 		$result->ipaddress      = $_SERVER['SERVER_ADDR'];
@@ -78,7 +78,7 @@ class DashboardModel extends GenericModel
 	protected function getDatabaseStatistics()
 	{
 		//  Initalize some local variables
-		$result   = new stdClass;
+		$result   = new \stdClass();
 		$database = $this->getDbo();
 
 		// Add the a list of charictar sets
