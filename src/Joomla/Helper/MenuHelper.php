@@ -197,7 +197,7 @@ class MenuHelper
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function renderSidebarMenu()
+    public static function renderSidebarMenu()
     {
         return \JHtmlSidebar::render();
     }

@@ -41,7 +41,7 @@ class DashboardModel extends GenericModel
 		$result->database =	$this->getDatabaseStatistics();
 
 		// Return the result
-		return $data;
+		return $result;
     }
 
 
