@@ -191,4 +191,15 @@ class MenuHelper
         \JHtmlSidebar::addEntry($heading);
     }
 
+
+    /**
+     * Renders the administration sidebar
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function renderSidebarMenu()
+    {
+        return \JHtmlSidebar::render();
+    }
+
 }
