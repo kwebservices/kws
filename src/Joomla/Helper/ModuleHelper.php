@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Module;
+namespace KWS\Joomla\Helper;
 
 use \Joomla\Registry\Registry;
 use \Joomla\CMS\Helper\ModuleHelper AS JModuleHelper;

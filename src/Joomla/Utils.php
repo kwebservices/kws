@@ -10,12 +10,12 @@
 
 namespace KWS\Joomla;
 
-use \KWS\Joomla\Component\ComponentHelper;
-use \KWS\Joomla\Database\DatabaseHelper;
-use \KWS\Joomla\Menu\MenuHelper;
-use \KWS\Joomla\User\UserHelper;
-use \KWS\Joomla\ToolBar\ToolBarHelper;
-use \KWS\Joomla\Document\DocumentHelper;
+use \KWS\Joomla\Helper\ComponentHelper;
+use \KWS\Joomla\Helper\DatabaseHelper;
+use \KWS\Joomla\Helper\MenuHelper;
+use \KWS\Joomla\Helper\UserHelper;
+use \KWS\Joomla\Helper\ToolBarHelper;
+use \KWS\Joomla\Helper\DocumentHelper;
 
 
 /**
