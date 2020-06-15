@@ -11,6 +11,7 @@
 namespace KWS\Joomla\Module;
 
 use \Joomla\Registry\Registry;
+use \Joomla\CMS\Helper\ModuleHelper;
 
 
 /**
@@ -126,5 +127,20 @@ class Module
         $this->cssId     = "module-{$this->id}";
         $this->cssClass  = "{$this->module} {$this->module}_{$this->layout}";
     }
+
+
+    /**
+     * Get a file path for a given module layout
+     * -------------------------------------------------------------------------
+     * @param  string   $layout     Name of a layout belonging to the module
+     *
+     * @return string
+     */
+    public function getLayoutPath($layout = null) : string
+    {
+        return ModuleHelper::getLayoutPath($this->module,
+            $layout ?? $this->layout);
+    }
+
 
 }
