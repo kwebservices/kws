@@ -14,7 +14,7 @@ namespace KWS\Joomla\Model\Administrator;
 /**
  * Base class for creating nested item based back-end models
  */
-class ItemModel extends ItemModel
+class NestedItemModel extends ItemModel
 {
 
     /**
