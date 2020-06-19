@@ -45,6 +45,7 @@ class NestedSetTable extends Nested
             }
 
             // Check that the alias doesn't already exist for another item
+            $database = Factory::getDbo();
             $query = $database->getQuery(true);
             $query->select('id');
             $query->from($this->getTableName());
