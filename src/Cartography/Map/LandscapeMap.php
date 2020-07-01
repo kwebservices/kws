@@ -8,35 +8,35 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for the ArcGIS National Geographic Map
+ * Thunderforest's Landscape Map
  *
- * @link https://www.arcgis.com/home/item.html?id=b9b1b422198944fbbd5250b3241691b6
+ * @link https://www.thunderforest.com/maps/landscape/
  */
-class NatGeographicTileSource extends TileSource
+class LandscapeMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'National Geographic Map';
+    protected $title = 'Landscape Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'natgeo';
+    protected $name = 'landscape';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,7 +44,7 @@ class NatGeographicTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
@@ -52,10 +52,10 @@ class NatGeographicTileSource extends TileSource
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey={k}';
 
 }

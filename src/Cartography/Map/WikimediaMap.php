@@ -8,35 +8,33 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for Thunderforest's Open Cycle Map
- *
- * @link https://www.thunderforest.com/maps/opencyclemap/
+ * Tile Source for the Wikimedia Map
  */
-class OcmTileSource extends TileSource
+class WikimediaMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'Open Cycle Map';
+    protected $title = 'Wikimedia Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'ocm';
+    protected $name = 'wikimedia';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,7 +42,7 @@ class OcmTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
@@ -52,11 +50,10 @@ class OcmTileSource extends TileSource
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={k}';
-
+    protected $tileUrl = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
 
 }

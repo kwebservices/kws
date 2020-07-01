@@ -8,35 +8,35 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for Thunderforest's Pioneer Map
+ * Thunderforest's Outdoors Map
  *
- * @link https://www.thunderforest.com/maps/pioneer/
+ * @link https://www.thunderforest.com/maps/outdoors/
  */
-class PioneerTileSource extends TileSource
+class OutdoorsMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'Pioneer Map';
+    protected $title = 'Outdoors Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'pioneer';
+    protected $name = 'outdoors';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,7 +44,7 @@ class PioneerTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
@@ -52,10 +52,10 @@ class PioneerTileSource extends TileSource
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={k}';
 
 }

@@ -8,33 +8,35 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for the Wikimedia Map
+ * Thunderforest's Transport Map
+ *
+ * @link https://www.thunderforest.com/maps/transport/
  */
-class WikimediaTileSource extends TileSource
+class TransportMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'Wikimedia Map';
+    protected $title = 'Transport Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'wikimedia';
+    protected $name = 'transport';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -42,7 +44,7 @@ class WikimediaTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
@@ -50,10 +52,10 @@ class WikimediaTileSource extends TileSource
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
+    protected $tileUrl = 'https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={k}';
 
 }

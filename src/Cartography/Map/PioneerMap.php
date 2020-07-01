@@ -8,35 +8,35 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for ArcGIS World Imagery Map
+ * Thunderforest's Pioneer Map
  *
- * @link https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9
+ * @link https://www.thunderforest.com/maps/pioneer/
  */
-class WorldImageryTileSource extends TileSource
+class PioneerMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'World Imagery Map';
+    protected $title = 'Pioneer Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'wimagery';
+    protected $name = 'pioneer';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,18 +44,18 @@ class WorldImageryTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $maxZoom = 18;
+    protected $maxZoom = 16;
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey={k}';
 
 }

@@ -8,16 +8,17 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
+use \KWS\Cartography\CartographyHelper;
 use \KWS\Cartography\Tile\Tile;
-use \KWS\Cartography\TileCache\TileCache;
+use \GuzzleHttp\Client AS HttpClient;
 
 
 /**
- * Base class for all map tile sources
+ * Base class for all maps
  */
-class TileSource
+class Map
 {
 
     /**
@@ -67,26 +68,17 @@ class TileSource
     protected $apikey = '';
 
 
-    /**
-     * Object for caching map tiles
-     *
-     * @var \KWS\Cartography\TileCache\TileCache
-     */
-    protected $cache = null;
-
-
 
     /**
      * Set the long form title for the tile source
      * -------------------------------------------------------------------------
      * @param  string   $value  A new value
      *
-     * @return \KWS\Cartography\TileSource\TileSource
+     * @return void
      */
-    public function setTitle(string $value) : TileSource
+    public function setTitle(string $value) : void
     {
         $this->title = $value;
-        return $this;
     }
 
 
@@ -95,12 +87,11 @@ class TileSource
      * -------------------------------------------------------------------------
      * @param  string   $value  A new value
      *
-     * @return \KWS\Cartography\TileSource\TileSource
+     * @return void
      */
-    public function setName(string $value) : TileSource
+    public function setName(string $value) : void
     {
         $this->name = $value;
-        return $this;
     }
 
 
@@ -109,12 +100,11 @@ class TileSource
      * -------------------------------------------------------------------------
      * @param  int   $value  A new value
      *
-     * @return \KWS\Cartography\TileSource\TileSource
+     * @return void
      */
-    public function setMinZoom(int $value) : TileSource
+    public function setMinZoom(int $value) : void
     {
         $this->minZoom = $value;
-        return $this;
     }
 
 
@@ -123,12 +113,11 @@ class TileSource
      * -------------------------------------------------------------------------
      * @param  string   $value  A new value
      *
-     * @return \KWS\Cartography\TileSource\TileSource
+     * @return void
      */
-    public function setMaxZoom(string $value) : TileSource
+    public function setMaxZoom(string $value) : void
     {
         $this->maxZoom = $value;
-        return $this;
     }
 
 
@@ -137,12 +126,11 @@ class TileSource
      * -------------------------------------------------------------------------
      * @param  string   $value  A new value
      *
-     * @return \KWS\Cartography\TileSource\TileSource
+     * @return void
      */
-    public function setTileUrl(string $value) : TileSource
+    public function setTileUrl(string $value) : void
     {
         $this->tileUrl = $value;
-        return $this;
     }
 
 
@@ -151,26 +139,11 @@ class TileSource
      * -------------------------------------------------------------------------
      * @param  string   $value  A new value
      *
-     * @return \KWS\Cartography\TileSource\TileSource
+     * @return void
      */
-    public function setApikey(string $value) : TileSource
+    public function setApikey(string $value) : void
     {
         $this->apikey = $value;
-        return $this;
-    }
-
-
-    /**
-     * Set the object for caching map tiles
-     * -------------------------------------------------------------------------
-     * @param  string   $value  A new value
-     *
-     * @return \KWS\Cartography\TileSource\TileSource
-     */
-    public function setCache(TileCache $value) : TileSource
-    {
-        $this->cache = $value;
-        return $this;
     }
 
 
@@ -254,34 +227,39 @@ class TileSource
 
 
     /**
-     * Get the object for caching map tiles
-     * -------------------------------------------------------------------------
-     * @return \KWS\Cartography\TileCache\TileCache
-     */
-    public function getCache() : ?TileCache
-    {
-        return $this->cache;
-    }
-
-
-    /**
-     * Get a map tile. Returns false on failure
+     * Get a map tile image. Returns false on failure
      * -------------------------------------------------------------------------
      * @param  int    $x        X tile coordinate
      * @param  int    $y        Y tile coordinate
      * @param  int    $zoom     Zoom level
      *
-     * @return \KWS\Cartography\Tile\Tile | bool
+     * @return \KWS\Cartography\Tile\Tile|bool
      */
-    public function get(int $x, int $y, int $zoom)
+    public function getTile(int $x, int $y, int $zoom)
     {
         // Download the tile image
-        $client   = new \GuzzleHttp\Client();
+        $client   = new HttpClient();
         $response = $client->get($this->getTileUrl(true));
 
         // Return the result
         return ($response->getStatusCode() == 200) ?
             new Tile($x, $y, $zoom, $response->getBody()) : false;
+    }
+
+
+    /**
+     * Get the map tile image from a given lat/lon position
+     * -------------------------------------------------------------------------
+     * @param  float  $lat      Lattitude in decimal degrees (eg: -27.323232)
+     * @param  float  $lon      Longitude in decimal degrees (eg: 159.292822)
+     * @param  int    $zoom     Map zoom level (eg: 12)
+     *
+     * @return \KWS\Cartography\Tile\Tile|bool
+     */
+    public function getTilebyLatlon(float $lat, float $lon, int $zoom)
+    {
+        $coordinates = CartographyHelper::latlonToTile($lat, $lon, $zoom);
+        return $this->getTile($coordinates->x, $coordinates->y, $coordinates->z);
     }
 
 }

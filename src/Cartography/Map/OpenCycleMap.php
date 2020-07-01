@@ -8,54 +8,54 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for the QTOPO Map
+ * Thunderforest's Open Cycle Map
  *
- * @link http://qtopo.dnrm.qld.gov.au/Mobile/
+ * @link https://www.thunderforest.com/maps/opencyclemap/
  */
-class QtopoTileSource extends TileSource
+class OpenCycleMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'QLD Topographic Map';
+    protected $title = 'Open Cycle Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'qtopo';
+    protected $name = 'ocm';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $minZoom = 4;
+    protected $minZoom = 1;
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $maxZoom = 15;
+    protected $maxZoom = 16;
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://gisservices2.information.qld.gov.au/arcgis/rest/services/QTopo/QTopoBase_WebM/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={k}';
 
 }

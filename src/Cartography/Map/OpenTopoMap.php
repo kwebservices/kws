@@ -8,35 +8,33 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for ArcGIS World Ocean Base Map
- *
- * @link https://www.arcgis.com/home/item.html?id=1e126e7520f9466c9ca28b8f28b5e500
+ * Open Topo Map
  */
-class WorldOceanTileSource extends TileSource
+class OpenTopoMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'World Ocean Base Map';
+    protected $title = 'Open Topographic Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'wocean';
+    protected $name = 'otm';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,18 +42,18 @@ class WorldOceanTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $maxZoom = 18;
+    protected $maxZoom = 16;
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'https://a.tile.opentopomap.org/{z}/{x}/{y}.png';
 
 }

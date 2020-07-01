@@ -8,33 +8,35 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for Open Topo Map
+ * ArcGIS National Geographic Map
+ *
+ * @link https://www.arcgis.com/home/item.html?id=b9b1b422198944fbbd5250b3241691b6
  */
-class OtmTileSource extends TileSource
+class NatGeographicMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'Open Topographic Map';
+    protected $title = 'National Geographic Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'otm';
+    protected $name = 'natgeo';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -42,7 +44,7 @@ class OtmTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
@@ -50,10 +52,10 @@ class OtmTileSource extends TileSource
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://a.tile.opentopomap.org/{z}/{x}/{y}.png';
+    protected $tileUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}';
 
 }

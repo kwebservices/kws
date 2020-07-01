@@ -8,35 +8,35 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for Thunderforest's Outdoors Map
+ * Thunderforest's Mobile Atlas Map
  *
- * @link https://www.thunderforest.com/maps/outdoors/
+ * @link https://www.thunderforest.com/maps/mobile-atlas/
  */
-class OutdoorsTileSource extends TileSource
+class MobileAtlasMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'Outdoors Map';
+    protected $title = 'Mobile Atlas Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'outdoors';
+    protected $name = 'mobatlas';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,7 +44,7 @@ class OutdoorsTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
@@ -52,10 +52,10 @@ class OutdoorsTileSource extends TileSource
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey={k}';
 
 }

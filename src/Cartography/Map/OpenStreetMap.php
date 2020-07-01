@@ -8,35 +8,33 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for ArcGIS World Street Map
- *
- * @link https://www.arcgis.com/home/item.html?id=3b93337983e9436f8db950e38a8629af
+ * Open Street Map
  */
-class WorldStreetTileSource extends TileSource
+class OpenStreetMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'World Street Map';
+    protected $title = 'Open Street Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'wstreet';
+    protected $name = 'osm';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,18 +42,18 @@ class WorldStreetTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $maxZoom = 18;
+    protected $maxZoom = 16;
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = '	https://a.tile.openstreetmap.org/${z}/${x}/${y}.png';
 
 }

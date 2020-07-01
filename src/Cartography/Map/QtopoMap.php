@@ -8,54 +8,54 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for Thunderforest's Landscape Map
+ * Queensland Topographic Map
  *
- * @link https://www.thunderforest.com/maps/landscape/
+ * @link http://qtopo.dnrm.qld.gov.au/Mobile/
  */
-class LandscapeTileSource extends TileSource
+class QtopoMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'Landscape Map';
+    protected $title = 'QLD Topographic Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'landscape';
+    protected $name = 'qtopo';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $minZoom = 1;
+    protected $minZoom = 4;
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $maxZoom = 16;
+    protected $maxZoom = 15;
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'https://gisservices2.information.qld.gov.au/arcgis/rest/services/QTopo/QTopoBase_WebM/MapServer/tile/{z}/{y}/{x}';
 
 }

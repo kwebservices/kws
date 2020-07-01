@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\Tile;
+namespace KWS\Cartography\Tile;
 
 
 /**
@@ -166,7 +166,5 @@ class Tile
     {
         return $this->image;
     }
-
-
 
 }

@@ -8,35 +8,35 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for Thunderforest's Transport Map
+ * ArcGIS World Ocean Base Map
  *
- * @link https://www.thunderforest.com/maps/transport/
+ * @link https://www.arcgis.com/home/item.html?id=1e126e7520f9466c9ca28b8f28b5e500
  */
-class TransportTileSource extends TileSource
+class WorldStreetMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'Transport Map';
+    protected $title = 'World Ocean Base Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'transport';
+    protected $name = 'wocean';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,18 +44,18 @@ class TransportTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $maxZoom = 16;
+    protected $maxZoom = 18;
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}';
 
 }

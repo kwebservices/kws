@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Joomla\Cartography;
+namespace KWS\Cartography;
 
 
 /**

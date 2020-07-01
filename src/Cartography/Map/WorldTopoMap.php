@@ -8,19 +8,19 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for ArcGIS World Topographic Map
+ * ArcGIS World Topographic Map
  *
  * @link https://www.arcgis.com/home/item.html?id=30e5fe3149c34df1ba922e6f5bbf808f
  */
-class WorldTopoTileSource extends TileSource
+class WorldTopoMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
@@ -28,15 +28,14 @@ class WorldTopoTileSource extends TileSource
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
     protected $name = 'wtopo';
 
-
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,7 +43,7 @@ class WorldTopoTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
@@ -52,7 +51,7 @@ class WorldTopoTileSource extends TileSource
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */

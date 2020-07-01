@@ -8,35 +8,35 @@
  * =============================================================================
  */
 
-namespace KWS\Legacy\Cartography\TileSource;
+namespace KWS\Cartography\Map;
 
 
 /**
- * Tile Source for Thunderforest's Mobile Atlas Map
+ * ArcGIS World Street Map
  *
- * @link https://www.thunderforest.com/maps/mobile-atlas/
+ * @link https://www.arcgis.com/home/item.html?id=3b93337983e9436f8db950e38a8629af
  */
-class MobileAtlasTileSource extends TileSource
+class WorldStreetMap extends Map
 {
 
     /**
-     * A long form title for the map
+     * A long form title for the tile source
      *
      * @var string
      */
-    protected $title = 'Mobile Atlas Map';
+    protected $title = 'World Street Map';
 
 
     /**
-     * A short name/alias for the map
+     * A short name/alias for the tile source
      *
      * @var string
      */
-    protected $name = 'mobatlas';
+    protected $name = 'wstreet';
 
 
     /**
-     * Minimum zoom level the map can handle
+     * Minimum zoom level the tile source can handle
      *
      * @var int
      */
@@ -44,18 +44,18 @@ class MobileAtlasTileSource extends TileSource
 
 
     /**
-     * Maximum zoom level the map can handle
+     * Maximum zoom level the tile source can handle
      *
      * @var int
      */
-    protected $maxZoom = 16;
+    protected $maxZoom = 18;
 
 
     /**
-     * A URL template used in getting map tile images
+     * A URL template used in getting tile images
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
 
 }
