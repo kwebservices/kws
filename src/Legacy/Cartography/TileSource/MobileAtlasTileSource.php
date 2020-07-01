@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for the QTOPO Map
+ * Tile Source for Thunderforest's Mobile Atlas Map
  *
- * @link http://qtopo.dnrm.qld.gov.au/Mobile/
+ * @link https://www.thunderforest.com/maps/mobile-atlas/
  */
-class QtopoTileSource extends TileSource
+class MobileAtlasTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class QtopoTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'QLD Topographic Map';
+    protected $title = 'Mobile Atlas Map';
 
 
     /**
@@ -32,7 +32,7 @@ class QtopoTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'qtopo';
+    protected $name = 'mobatlas';
 
 
     /**
@@ -40,7 +40,7 @@ class QtopoTileSource extends TileSource
      *
      * @var int
      */
-    protected $minZoom = 4;
+    protected $minZoom = 1;
 
 
     /**
@@ -48,7 +48,7 @@ class QtopoTileSource extends TileSource
      *
      * @var int
      */
-    protected $maxZoom = 15;
+    protected $maxZoom = 16;
 
 
     /**
@@ -56,6 +56,6 @@ class QtopoTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'https://gisservices2.information.qld.gov.au/arcgis/rest/services/QTopo/QTopoBase_WebM/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey={k}';
 
 }

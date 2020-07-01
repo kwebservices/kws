@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for Thunderforest's Transport Map
+ * Tile Source for ArcGIS World Topographic Map
  *
- * @link https://www.thunderforest.com/maps/transport/
+ * @link https://www.arcgis.com/home/item.html?id=30e5fe3149c34df1ba922e6f5bbf808f
  */
-class TransportTileSource extends TileSource
+class WorldTopoTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class TransportTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'Transport Map';
+    protected $title = 'World Topographic Map';
 
 
     /**
@@ -32,7 +32,7 @@ class TransportTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'transport';
+    protected $name = 'wtopo';
 
 
     /**
@@ -48,7 +48,7 @@ class TransportTileSource extends TileSource
      *
      * @var int
      */
-    protected $maxZoom = 16;
+    protected $maxZoom = 18;
 
 
     /**
@@ -56,6 +56,6 @@ class TransportTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
 
 }

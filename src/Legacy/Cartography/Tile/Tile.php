@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Tile;
+namespace KWS\Legacy\Cartography\Tile;
 
 
 /**

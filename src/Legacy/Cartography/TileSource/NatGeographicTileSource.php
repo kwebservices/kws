@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for ArcGIS World Ocean Base Map
+ * Tile Source for the ArcGIS National Geographic Map
  *
- * @link https://www.arcgis.com/home/item.html?id=1e126e7520f9466c9ca28b8f28b5e500
+ * @link https://www.arcgis.com/home/item.html?id=b9b1b422198944fbbd5250b3241691b6
  */
-class WorldOceanTileSource extends TileSource
+class NatGeographicTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class WorldOceanTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'World Ocean Base Map';
+    protected $title = 'National Geographic Map';
 
 
     /**
@@ -32,7 +32,7 @@ class WorldOceanTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'wocean';
+    protected $name = 'natgeo';
 
 
     /**
@@ -48,7 +48,7 @@ class WorldOceanTileSource extends TileSource
      *
      * @var int
      */
-    protected $maxZoom = 18;
+    protected $maxZoom = 16;
 
 
     /**
@@ -56,6 +56,6 @@ class WorldOceanTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}';
 
 }

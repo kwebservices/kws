@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for ArcGIS World Imagery Map
+ * Tile Source for ArcGIS World Ocean Base Map
  *
- * @link https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9
+ * @link https://www.arcgis.com/home/item.html?id=1e126e7520f9466c9ca28b8f28b5e500
  */
-class WorldImageryTileSource extends TileSource
+class WorldOceanTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class WorldImageryTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'World Imagery Map';
+    protected $title = 'World Ocean Base Map';
 
 
     /**
@@ -32,7 +32,7 @@ class WorldImageryTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'wimagery';
+    protected $name = 'wocean';
 
 
     /**
@@ -56,6 +56,6 @@ class WorldImageryTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}';
 
 }

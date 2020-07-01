@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 use \KWS\Cartography\Tile\Tile;
 use \KWS\Cartography\TileCache\TileCache;

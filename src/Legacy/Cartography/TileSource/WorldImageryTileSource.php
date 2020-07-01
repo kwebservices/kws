@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for ArcGIS World Topographic Map
+ * Tile Source for ArcGIS World Imagery Map
  *
- * @link https://www.arcgis.com/home/item.html?id=30e5fe3149c34df1ba922e6f5bbf808f
+ * @link https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9
  */
-class WorldTopoTileSource extends TileSource
+class WorldImageryTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class WorldTopoTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'World Topographic Map';
+    protected $title = 'World Imagery Map';
 
 
     /**
@@ -32,7 +32,7 @@ class WorldTopoTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'wtopo';
+    protected $name = 'wimagery';
 
 
     /**
@@ -56,6 +56,6 @@ class WorldTopoTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
 
 }

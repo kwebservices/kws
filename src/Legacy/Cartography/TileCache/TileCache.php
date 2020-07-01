@@ -8,12 +8,12 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileCache;
+namespace KWS\Legacy\Cartography\TileCache;
 
 
 /**
- * Class for caching map tiles in an sqlite3 database file
+ * Base class for all map tile caches
  */
-class SqLite3TileCache extends TileCache
+class TileCache
 {
 }

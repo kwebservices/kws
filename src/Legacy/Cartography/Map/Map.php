@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\Map;
+namespace KWS\Legacy\Cartography\Map;
 
 
 /**

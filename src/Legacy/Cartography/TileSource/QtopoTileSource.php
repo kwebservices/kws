@@ -8,13 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for Open Street Map
+ * Tile Source for the QTOPO Map
+ *
+ * @link http://qtopo.dnrm.qld.gov.au/Mobile/
  */
-class OsmTileSource extends TileSource
+class QtopoTileSource extends TileSource
 {
 
     /**
@@ -22,7 +24,7 @@ class OsmTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'Open Street Map';
+    protected $title = 'QLD Topographic Map';
 
 
     /**
@@ -30,7 +32,7 @@ class OsmTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'osm';
+    protected $name = 'qtopo';
 
 
     /**
@@ -38,7 +40,7 @@ class OsmTileSource extends TileSource
      *
      * @var int
      */
-    protected $minZoom = 1;
+    protected $minZoom = 4;
 
 
     /**
@@ -46,7 +48,7 @@ class OsmTileSource extends TileSource
      *
      * @var int
      */
-    protected $maxZoom = 16;
+    protected $maxZoom = 15;
 
 
     /**
@@ -54,7 +56,6 @@ class OsmTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'http://192.168.0.130:80/tile/{z}/{x}/{y}.png';
-
+    protected $tileUrl = 'https://gisservices2.information.qld.gov.au/arcgis/rest/services/QTopo/QTopoBase_WebM/MapServer/tile/{z}/{y}/{x}';
 
 }

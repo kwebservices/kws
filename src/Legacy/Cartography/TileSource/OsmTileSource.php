@@ -8,15 +8,13 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for Thunderforest's Open Cycle Map
- *
- * @link https://www.thunderforest.com/maps/opencyclemap/
+ * Tile Source for Open Street Map
  */
-class OcmTileSource extends TileSource
+class OsmTileSource extends TileSource
 {
 
     /**
@@ -24,7 +22,7 @@ class OcmTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'Open Cycle Map';
+    protected $title = 'Open Street Map';
 
 
     /**
@@ -32,7 +30,7 @@ class OcmTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'ocm';
+    protected $name = 'osm';
 
 
     /**
@@ -56,7 +54,7 @@ class OcmTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'http://192.168.0.130:80/tile/{z}/{x}/{y}.png';
 
 
 }

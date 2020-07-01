@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for Thunderforest's Mobile Atlas Map
+ * Tile Source for Thunderforest's Transport Map
  *
- * @link https://www.thunderforest.com/maps/mobile-atlas/
+ * @link https://www.thunderforest.com/maps/transport/
  */
-class MobileAtlasTileSource extends TileSource
+class TransportTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class MobileAtlasTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'Mobile Atlas Map';
+    protected $title = 'Transport Map';
 
 
     /**
@@ -32,7 +32,7 @@ class MobileAtlasTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'mobatlas';
+    protected $name = 'transport';
 
 
     /**
@@ -56,6 +56,6 @@ class MobileAtlasTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={k}';
 
 }

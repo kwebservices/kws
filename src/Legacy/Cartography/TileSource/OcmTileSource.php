@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for ArcGIS World Street Map
+ * Tile Source for Thunderforest's Open Cycle Map
  *
- * @link https://www.arcgis.com/home/item.html?id=3b93337983e9436f8db950e38a8629af
+ * @link https://www.thunderforest.com/maps/opencyclemap/
  */
-class WorldStreetTileSource extends TileSource
+class OcmTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class WorldStreetTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'World Street Map';
+    protected $title = 'Open Cycle Map';
 
 
     /**
@@ -32,7 +32,7 @@ class WorldStreetTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'wstreet';
+    protected $name = 'ocm';
 
 
     /**
@@ -48,7 +48,7 @@ class WorldStreetTileSource extends TileSource
      *
      * @var int
      */
-    protected $maxZoom = 18;
+    protected $maxZoom = 16;
 
 
     /**
@@ -56,6 +56,7 @@ class WorldStreetTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+    protected $tileUrl = 'https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={k}';
+
 
 }

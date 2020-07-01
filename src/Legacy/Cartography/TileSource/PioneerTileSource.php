@@ -8,15 +8,15 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for Thunderforest's Landscape Map
+ * Tile Source for Thunderforest's Pioneer Map
  *
- * @link https://www.thunderforest.com/maps/landscape/
+ * @link https://www.thunderforest.com/maps/pioneer/
  */
-class LandscapeTileSource extends TileSource
+class PioneerTileSource extends TileSource
 {
 
     /**
@@ -24,7 +24,7 @@ class LandscapeTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'Landscape Map';
+    protected $title = 'Pioneer Map';
 
 
     /**
@@ -32,7 +32,7 @@ class LandscapeTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'landscape';
+    protected $name = 'pioneer';
 
 
     /**
@@ -56,6 +56,6 @@ class LandscapeTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey={k}';
 
 }

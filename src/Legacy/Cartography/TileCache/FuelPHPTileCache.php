@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileCache;
+namespace KWS\Legacy\Cartography\TileCache;
 
 
 /**

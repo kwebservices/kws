@@ -8,15 +8,13 @@
  * =============================================================================
  */
 
-namespace KWS\Cartography\TileSource;
+namespace KWS\Legacy\Cartography\TileSource;
 
 
 /**
- * Tile Source for Thunderforest's Outdoors Map
- *
- * @link https://www.thunderforest.com/maps/outdoors/
+ * Tile Source for the Wikimedia Map
  */
-class OutdoorsTileSource extends TileSource
+class WikimediaTileSource extends TileSource
 {
 
     /**
@@ -24,7 +22,7 @@ class OutdoorsTileSource extends TileSource
      *
      * @var string
      */
-    protected $title = 'Outdoors Map';
+    protected $title = 'Wikimedia Map';
 
 
     /**
@@ -32,7 +30,7 @@ class OutdoorsTileSource extends TileSource
      *
      * @var string
      */
-    protected $name = 'outdoors';
+    protected $name = 'wikimedia';
 
 
     /**
@@ -56,6 +54,6 @@ class OutdoorsTileSource extends TileSource
      *
      * @var string
      */
-    protected $tileUrl = 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={k}';
+    protected $tileUrl = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
 
 }
