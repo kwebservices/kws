@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\DropshipZone;
+namespace KWS\Legacy\DropshipZone;
 
 
 /**
