@@ -11,6 +11,7 @@
 namespace KWS\Joomla\Helper;
 
 use \Joomla\CMS\Categories\Categories;
+use \Joomla\Registry\Registry;
 
 
 /**
@@ -29,7 +30,7 @@ class ContentHelper
     public static function getCategoryById(int $id)
     {
         $result = Categories::getInstance('content')->get($id);
-        $result->params = json_decode($result->params);
+        $result->params = new Registry($result->params);
         return $result;
     }
 
