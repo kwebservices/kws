@@ -12,6 +12,7 @@ namespace KWS\Joomla\Helper;
 
 use \Joomla\CMS\Categories\Categories;
 use \Joomla\Registry\Registry;
+use \Joomla\CMS\Factory;
 
 
 /**
@@ -45,7 +46,15 @@ class ContentHelper
     public static function getArticleById(int $id)
     {
         $model = ComponentHelper::getModel('com_content', 'Article');
+        $model->setState('params', Factory::getApplication()->getParams());
         $result = $model->getItem($id);
+
+        if ($result) {
+            $result->images  = new Registry($result->images);
+            $result->urls    = new Registry($result->urls);
+            $result->attribs = new Registry($result->attribs);
+        }
+
         return $result;
     }
 
