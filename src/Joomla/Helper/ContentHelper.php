@@ -29,7 +29,7 @@ class ContentHelper
     public static function getCategoryById(int $id)
     {
         $result = Categories::getInstance('content')->get($id);
-        $result->params = json_decode($category->params);
+        $result->params = json_decode($result->params);
         return $result;
     }
 
