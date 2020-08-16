@@ -75,17 +75,6 @@ class ReCaptcha
 
 
     /**
-     * Check if the current site key is valid
-     * -------------------------------------------------------------------------
-     * @return bool
-     */
-    public function validateSiteKey() : bool
-    {
-        return !empty($this->getSiteKey());
-    }
-
-
-    /**
      * Set the secret key used to check the ReCaptcha
      * -------------------------------------------------------------------------
      * @param  string    $key   A ReCaptcha secret key issued by Google
@@ -95,17 +84,6 @@ class ReCaptcha
     public function setSecretKey(string $key) : ReCaptcha
     {
         $this->secretKey = trim($key);
-    }
-
-
-    /**
-     * Check if the current secret key is valid
-     * -------------------------------------------------------------------------
-     * @return bool
-     */
-    public function validateSecretKey() : bool
-    {
-        return !empty($this->getSecretKey());
     }
 
 
@@ -131,11 +109,12 @@ class ReCaptcha
         $siteKey = $this->getSiteKey();
 
         // Check that we have valid site key
-        if (!$this->validateSiteKey()) {
-            throw new \Exception("Missing/invalid ReCaptcha Site Key");
+        if (empty($siteKey)) {
+            throw new \Exception("Missing ReCaptcha Site Key");
         }
 
-        $result  = "<script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>\n";
+        $jsUrl   = "https://www.google.com/recaptcha/api.js";
+        $result  = "<script src=\"$jsUrl\" async defer></script>\n";
         $result .= "<div class=\"g-recaptcha\" data-sitekey=\"$siteKey\"></div>";
         return $result;
     }
@@ -155,8 +134,8 @@ class ReCaptcha
         $response  = $_POST['g-recaptcha-response'] ?? '';
 
         // Check that we have valid secret key
-        if (!$this->validateSecretKey()) {
-            throw new \Exception("Missing/invalid ReCaptcha Secret Key");
+        if (empty($secretKey)) {
+            throw new \Exception("Missing ReCaptcha Secret Key");
         }
 
         // Send POST http request to verify the response with Google
