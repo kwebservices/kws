@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Google;
+namespace KWS\Helper;
 
 use \GuzzleHttp\Client AS HttpClient;
 
