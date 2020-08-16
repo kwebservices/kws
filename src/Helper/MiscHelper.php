@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS;
+namespace KWS\Helper;
 
 
 use \Dompdf\Dompdf;
@@ -17,9 +17,9 @@ use \ZipArchive;
 
 
 /**
- * Class for miscellanious/currently unorganised utilities
+ * Helper oclass for miscellanious/currently unorganised methods
  */
-class Utils
+class MiscHelper extends Helper
 {
 
     /**
