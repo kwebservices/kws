@@ -113,35 +113,6 @@ class Utils
 
 
     /**
-     * Enable all PHP error reporting
-     * -------------------------------------------------------------------------
-     * @return void
-     */
-    public static function enableFullErrorReporting() : void
-    {
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-    }
-
-
-
-    /**
-     * Disable all PHP error reporting
-     * -------------------------------------------------------------------------
-     * @return void
-     */
-    public function disableAllErrorReporting() : void
-    {
-        error_reporting(E_NONE);
-        ini_set('display_errors', 0);
-    }
-
-
-    
-
-
-
-    /**
      * Block access to the site with a given HTTP response code and message
      * ------------------------------------------------------------------------
      * @param integer $httpCode        HTTP response code to send
