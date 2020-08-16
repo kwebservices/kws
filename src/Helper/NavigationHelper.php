@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Navigation;
+namespace KWS\Helper;
 
 
 /**
@@ -56,5 +56,5 @@ class NavigationHelper
         // Return the reuslt
         return $result;
     }
-    
+
 }
