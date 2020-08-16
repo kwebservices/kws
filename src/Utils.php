@@ -112,17 +112,6 @@ class Utils
 
     }
 
-    /**
-     * Check if the given value contains HTML
-     * -------------------------------------------------------------------------
-     * @param  string $value    Content to be checked
-     *
-     * @return bool
-     */
-    public static function containsHTML(string $value)
-    {
-        return $value != strip_tags($value);
-    }
 
     /**
      * Enable all PHP error reporting
