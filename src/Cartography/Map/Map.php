@@ -10,7 +10,7 @@
 
 namespace KWS\Cartography\Map;
 
-use \KWS\Cartography\CartographyHelper;
+use \KWS\Helper\CartographyHelper;
 use \KWS\Cartography\Tile\Tile;
 use \GuzzleHttp\Client AS HttpClient;
 
