@@ -14,7 +14,7 @@ namespace KWS\Helper;
 /**
  * Helper class that can used to validate various types of data
  */
-class ValidationHelper
+class ValidationHelper extends Helper
 {
 
     /**

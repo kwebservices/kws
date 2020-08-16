@@ -14,7 +14,7 @@ namespace KWS\Helper;
 /**
  * Helper class for working with geospacial navigation
  */
-class NavigationHelper
+class NavigationHelper extends Helper
 {
 
     protected static $cardinalDirections = ['N','NNE','NE','ENE','E','ESE',

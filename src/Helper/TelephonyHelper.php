@@ -14,7 +14,7 @@ namespace KWS\Helper;
 /**
  * Helper class for working with telephone/mobile data
  */
-class TelephonyHelper
+class TelephonyHelper extends Helper
 {
 
     /**

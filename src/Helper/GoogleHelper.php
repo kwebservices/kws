@@ -16,7 +16,7 @@ use \GuzzleHttp\Client AS HttpClient;
 /**
  * Helper class for working with various Google Services
  */
-class GoogleHelper
+class GoogleHelper extends Helper
 {
 
     /**
