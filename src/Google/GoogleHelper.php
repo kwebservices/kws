@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Helper;
+namespace KWS\Google;
 
 use \GuzzleHttp\Client AS HttpClient;
 
@@ -16,7 +16,7 @@ use \GuzzleHttp\Client AS HttpClient;
 /**
  * Helper class for working with various Google Services
  */
-class GoogleHelper extends Helper
+class GoogleHelper
 {
 
     /**
