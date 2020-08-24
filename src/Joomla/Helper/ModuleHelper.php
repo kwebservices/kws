@@ -157,4 +157,16 @@ class ModuleHelper
     }
 
 
+    /**
+	 * Get data as an object for rendering the module layout
+	 * -------------------------------------------------------------------------
+	 * @return \stdClass
+	 *
+	 * @deprecated
+	 */
+	public function getData($params)
+	{
+		return $this->params->toObject();
+	}
+
 }
