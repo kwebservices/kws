@@ -99,7 +99,7 @@ class ModuleHelper
         $this->showtitle = $module->showtitle;
         $this->params    = new Registry($module->params);
         $this->name      = $module->name;
-        $this->layout    = trim($this->params->get('layout', 'default'), ':');
+        $this->layout    = $this->params->get('layout', ':default');
     }
 
 
@@ -137,12 +137,11 @@ class ModuleHelper
     {
         $result   = [];
         $result[] = $this->module;
-        $result[] = "{$this->module}_{$this->layout}";
+        $result[] = $this->module . '_' . preg_replace('/^.*:/', '', $this->layout);
         $result[] = $this->params->get('module_classes', '');
-        $result   = implode(array_filter($result), ' ');
+        $result   = implode(' ', array_filter($result));
         return $result;
     }
-
 
     /**
      * Get a file path for a given module layout
