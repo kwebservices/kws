@@ -164,7 +164,7 @@ class ModuleHelper
 	 *
 	 * @deprecated
 	 */
-	public function getData($params)
+	public function getData()
 	{
 		return $this->params->toObject();
 	}
