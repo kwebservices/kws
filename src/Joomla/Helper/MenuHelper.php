@@ -202,4 +202,36 @@ class MenuHelper
         return \JHtmlSidebar::render();
     }
 
+
+    /**
+     * Get's an image for the menu item depending on the type of menu item
+     * -------------------------------------------------------------------------
+     * @param  \stdClass    $item   The menu item to find an image for
+     *
+     * @return string
+     */
+    public static function getMenuItemImage($item) : string
+    {
+        // Initialize some local variables
+        $component = $item->component;
+        $view      = $item->query['view'] ?? '';
+        $id        = $item->query['id'] ?? '';
+        $result    = $item->params->get('menu_image', '');
+
+        switch ("$component.$view") {
+            case 'com_content.category':
+                $category = ContentHelper::getCategoryById($item->query['id']);
+                $result   = $category->params->get('image');
+                break;
+
+            case 'com_content.article':
+                $article = ContentHelper::getArticleById($id);
+                $result  = $article->images['image_intro'];
+                break;
+        }
+
+        // Return the result
+        return $result;
+    }
+
 }
