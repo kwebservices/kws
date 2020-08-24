@@ -82,29 +82,6 @@ class ModuleHelper
      */
     public $layout = 'default';
 
-    /**
-     * HTML tag to use for the module container
-     *
-     * @var string
-     */
-    public $tag = 'div';
-
-
-    /**
-     * CSS ID for the module's container element
-     *
-     * @var string
-     */
-    public $cssId = '';
-
-
-    /**
-     * CSS class for the module's container element
-     *
-     * @var string
-     */
-    public $cssClass = '';
-
 
 
     /**
@@ -122,10 +99,48 @@ class ModuleHelper
         $this->showtitle = $module->showtitle;
         $this->params    = new Registry($module->params);
         $this->name      = $module->name;
-        $this->layout    = $this->params->get('layout', 'default');
-        $this->tag       = $this->params->get('module_tag', 'div');
-        $this->cssId     = "module-{$this->id}";
-        $this->cssClass  = "{$this->module} {$this->module}_{$this->layout}";
+        $this->layout    = trim($this->params->get('layout', 'default'), ':');
+    }
+
+
+    /**
+     * Get the html tag typ to use for the module's container element
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function getContainerTag()
+    {
+        $result = $this->params->get('module_tag', 'div');
+        return $result;
+    }
+
+
+    /**
+     * Get an css ID, typically used on the module container element
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function getContainerId()
+    {
+        $result = $this->params->get('module_id', '');
+        $result = (empty($result)) ? "module-{$this->id}" : $result ;
+        return $result;
+    }
+
+
+    /**
+     * Get an css classes, typically used on the module container element
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function getContainerClasses()
+    {
+        $result   = [];
+        $result[] = $this->module;
+        $result[] = "{$this->module}_{$this->layout}";
+        $result[] = $this->params->get('module_classes', '');
+        $result   = implode(array_filter($result), ' ');
+        return $result;
     }
 
 
