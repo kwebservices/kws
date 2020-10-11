@@ -70,6 +70,22 @@ class Map
 
 
     /**
+     * Factory method for creating new maps
+     * -------------------------------------------------------------------------
+     * @param  string   $type   Class prefix for the type of map to create
+     *
+     * @return \KWS\Cartography\Map\Map;
+     */
+    public static function create(string $type)
+    {
+        $className = $type . 'Map';
+        if (class_exists($className)) {
+            return new $className();
+        }
+    }
+
+
+    /**
      * Set the long form title for the tile source
      * -------------------------------------------------------------------------
      * @param  string   $value  A new value
