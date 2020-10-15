@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Component;
 
 use \Joomla\CMS\Component\ComponentHelper AS JComponentHelper;
 use \Joomla\CMS\MVC\Model\BaseDatabaseModel;

@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Menu;
 
 use \Joomla\CMS\Factory;
 use \Joomla\CMS\Router\Route;

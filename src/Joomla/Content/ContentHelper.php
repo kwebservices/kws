@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Content;
 
 use \Joomla\CMS\Categories\Categories;
 use \Joomla\Registry\Registry;

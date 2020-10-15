@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Helper;
+namespace KWS\Joomla\Database;
 
 use \Joomla\CMS\Factory;
 use \Joomla\CMS\HTML\HTMLHelper;
