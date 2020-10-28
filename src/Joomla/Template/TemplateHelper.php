@@ -78,11 +78,69 @@ class TemplateHelper
         // Set the document type to HTML5
         $this->document->setHtml5(true);
 
+        // Initialise all stylesheets
+        $this->initStylesheets();
+
+        // Initialise all javascript
+        $this->initScripts();
+
+        // Initialise all favicons
+        $this->initFavicons();
+
+        // Initialise all HTML meta tags
+        $this->initMetaData();
+    }
+
+
+
+    /**
+     * Add, update or remove all external stylesheets and internal CSS
+     * -------------------------------------------------------------------------
+     * @return void
+     */
+    protected function initStylesheets() : void
+    {
+    }
+
+
+    /**
+     * Add, update or remove all javascript, etc in the documents head section
+     * -------------------------------------------------------------------------
+     * @return void
+     */
+    protected function initScripts() : void
+    {
+    }
+
+
+    /**
+     * Add, update or remove all favicons
+     * -------------------------------------------------------------------------
+     * @return void
+     */
+    protected function initFavicons() : void
+    {
+    }
+
+
+    /**
+     * Add, update or remove all HTML meta tags
+     * -------------------------------------------------------------------------
+     * @return void
+     */
+    protected function initMetaData() : void
+    {
+        // Add a standard viewport meta tag
+        $this->document->setMetaData('viewport',
+            'width=device-width, initial-scale=1');
+
         // Remove the generator meta tag (if it exists)
         $this->document->setGenerator('');
 
         // Use the page title (without the site name) as the meta title
-        $this->document->setMetaData('title', DocumentHelper::getTitle());
+        $this->document->setMetaData('title',
+            DocumentHelper::getTitle());
     }
+
 
 }
