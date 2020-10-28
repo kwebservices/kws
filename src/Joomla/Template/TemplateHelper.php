@@ -49,7 +49,7 @@ class TemplateHelper
      * -------------------------------------------------------------------------
      * @var string
      */
-    public $baseURL = '';
+    public $baseUrl = '';
 
 
 
@@ -64,7 +64,7 @@ class TemplateHelper
         $this->template = Factory::getApplication()->getTemplate(true);
         $this->document = Factory::getDocument();
         $this->basePath = JPATH_THEMES . DIRECTORY_SEPARATOR . $this->template->template;
-        $this->baseUrl  = Factory::getUri()->base();
+        $this->baseUrl  = Factory::getUri()->base() . 'templates/'. $this->template->template;
     }
 
 
