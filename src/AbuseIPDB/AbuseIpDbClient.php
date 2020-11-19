@@ -89,9 +89,9 @@ class AbuseIpDbClient
      * -------------------------------------------------------------------------
      * @param  string   $address    An IPv4 or IPv6 address to check
      *
-     * @return null|\stdClass
+     * @return null|stdClass
      */
-    public function getInfo(string $address) : ?stdClass
+    public function getInfo(string $address)
     {
         return $this->call('check', ['ipAddress' => $address]);
     }
@@ -105,7 +105,7 @@ class AbuseIpDbClient
      *
      * @return null|stdClass
      */
-    protected function call(string $resource, array $data = []) : ?stdClass
+    protected function call(string $resource, array $data = [])
     {
         $response = $this->client->request('GET', $resource, [
             'query'   => $data,
@@ -117,7 +117,8 @@ class AbuseIpDbClient
 
         // Process an return the result
         if ($response->getStatusCode() == 200) {
-            return json_decode($response->getBody());
+            $result = json_decode($response->getBody());
+            return $response->data;
         } else {
             return NULL;
         }
