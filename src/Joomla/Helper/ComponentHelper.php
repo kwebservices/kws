@@ -19,7 +19,7 @@ use \Joomla\CMS\Table\Table;
 /**
  * Helper/utility class for working with component extensions
  */
-class ComponentHelper
+class ComponentHelper extends Helper
 {
 
     /**

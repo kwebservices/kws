@@ -18,7 +18,7 @@ use \Joomla\CMS\Language\Text;
 /**
  * Helper/utility class for working with Joomla's menu system
  */
-class MenuHelper
+class MenuHelper extends Helper
 {
 
     /**

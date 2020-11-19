@@ -14,6 +14,6 @@ namespace KWS\Joomla\Helper;
 /**
  * Helper/utility class for working with Joomla forms
  */
-class FormHelper
+class FormHelper extends Helper
 {
 }

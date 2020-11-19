@@ -16,7 +16,7 @@ use \Joomla\CMS\Factory;
 /**
  * Helper/utility class for working Joomla's user system
  */
-class UserHelper
+class UserHelper extends Helper
 {
 
     /**

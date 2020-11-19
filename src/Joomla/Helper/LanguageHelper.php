@@ -14,6 +14,6 @@ namespace KWS\Joomla\Helper;
 /**
  * Helper/utility class for working with Joomla's language sub-system
  */
-class LanguageHelper
+class LanguageHelper extends Helper
 {
 }

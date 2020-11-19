@@ -16,7 +16,7 @@ use \Joomla\CMS\Factory;
 /**
  * Helper/utility class for working with template extensions
  */
-class TemplateHelper
+class TemplateHelper extends Helper
 {
 
     /**

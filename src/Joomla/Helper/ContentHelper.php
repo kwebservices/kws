@@ -18,7 +18,7 @@ use \Joomla\CMS\Factory;
 /**
  * Helper/utility class for working with joomla articles and categories
  */
-class ContentHelper
+class ContentHelper extends Helper
 {
 
     /**

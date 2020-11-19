@@ -16,7 +16,7 @@ use \Joomla\CMS\Factory;
 /**
  * Helper/utility class for working with Joomla's document object
  */
-class DocumentHelper
+class DocumentHelper extends Helper
 {
 
     /**

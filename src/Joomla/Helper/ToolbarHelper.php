@@ -17,7 +17,7 @@ use \Joomla\CMS\Language\Text;
 /**
  * Helper/utility class for working Joomla's toolbar system
  */
-class ToolbarHelper
+class ToolbarHelper extends Helper
 {
 
     /**

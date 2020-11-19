@@ -12,8 +12,8 @@ namespace KWS\Joomla\Helper;
 
 
 /**
- * Helper/utility class for working with library extensions
+ * Base class for all joomla helpers
  */
-class LibraryHelper extends Helper
+class Helper
 {
 }

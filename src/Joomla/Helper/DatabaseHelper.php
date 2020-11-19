@@ -17,7 +17,7 @@ use \Joomla\CMS\HTML\HTMLHelper;
 /**
  * Helper/untility class for working Joomla's database system
  */
-class DatabaseHelper
+class DatabaseHelper extends Helper
 {
 
     /**

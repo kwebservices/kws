@@ -17,7 +17,7 @@ use \Joomla\CMS\Helper\ModuleHelper AS JModuleHelper;
 /**
  * Base class for creating module helpers.
  */
-class ModuleHelper
+class ModuleHelper extends Helper
 {
 
     /**
