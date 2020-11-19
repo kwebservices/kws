@@ -15,6 +15,7 @@ class Member extends Element
 {
     public $type = ""
     public $ref  = ""
+    public $role  = ""
 
     /**
      * Load element data from XML string or SimpleXML object
@@ -32,6 +33,7 @@ class Member extends Element
         // Load values from XML attributes
         $this->type = (string) $data['type'] ?? '';
         $this->ref  = (string) $data['ref'] ?? '';
+        $this->role = (string) $data['role'] ?? '';
     }
 
 }
