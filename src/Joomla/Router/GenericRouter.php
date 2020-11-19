@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Router\Site;
+namespace KWS\Joomla\Router;
 
 use \Joomla\CMS\Component\Router\RouterView;
 use \Joomla\CMS\Component\Router\Rules\MenuRules;
