@@ -10,6 +10,7 @@
 
 namespace KWS\Joomla\Toolbar;
 
+use \KWS\Joomla\User\UserHelper;
 use \Joomla\CMS\Toolbar\ToolbarHelper AS JToolBarHelper;
 use \Joomla\CMS\Language\Text;
 
