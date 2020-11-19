@@ -13,9 +13,9 @@ namespace KWS\Cartography\OSM\Elements;
 
 class Member extends Element
 {
-    public $type = ""
-    public $ref  = ""
-    public $role  = ""
+    public $type = "";
+    public $ref  = "";
+    public $role  = "";
 
     /**
      * Load element data from XML string or SimpleXML object
