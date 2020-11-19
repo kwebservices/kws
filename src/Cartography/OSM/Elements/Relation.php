@@ -20,6 +20,8 @@ class Relation extends Element
     public $version   = '';
     public $changeset = '';
     public $timestamp = '';
+    public $members   = [];
+    public $tags      = [];
 
 
     /**
@@ -43,5 +45,15 @@ class Relation extends Element
         $this->version   = (string) $data['version'] ?? '';
         $this->changeset = (string) $data['changeset'] ?? '';
         $this->timestamp = (string) $data['timestamp'] ?? '';
+
+        // Parse any member elements
+        foreach ($data->member as $member) {
+            $this->members[] = new Member($member);
+        }
+
+        // Parse any tag elements
+        foreach ($data->tag as $tag) {
+            $this->tags[] = new Tag($tag);
+        }
     }
 }
