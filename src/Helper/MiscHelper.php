@@ -211,4 +211,34 @@ class MiscHelper extends Helper
         return file_get_contents($filename);
     }
 
+
+    /**
+	 * Method to convert a given number of bytes to KiB
+	 * string (1024 bytes = 1 KiB)
+	 * -------------------------------------------------------------------------
+	 * @param  	integer 	$bytes         	The value to convert
+	 * @param  	integer 	$decimalPlaces 	Number of decimals places
+	 *
+	 * @return 	string
+	 */
+	public static function bytesToKiB($bytes, $decimalPlaces = 2)
+	{
+		return number_format($bytes/1024, $decimalPlaces, '.', '');
+	}
+
+
+	/**
+	 * Method to convert a given number of bytes to MiB
+	 * string (1048576 bytes = 1 KMiB)
+	 * -------------------------------------------------------------------------
+	 * @param  	integer $bytes         	The value to convert
+	 * @param  	integer $decimalPlaces 	Number of decimals places
+	 *
+	 * @return 	string
+	 */
+	public static function bytesToMiB($bytes, $decimalPlaces = 2)
+	{
+		return number_format($bytes/1048576, $decimalPlaces, '.', '');
+	}
+
 }
