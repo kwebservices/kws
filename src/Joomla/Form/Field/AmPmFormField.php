@@ -16,16 +16,16 @@ use \Joomla\CMS\Form\FormHelper;
 
 
 // Load the parent FormField class
-FormHelper::loadFieldClass('list');
+FormHelper::loadFieldClass('radio');
 
 
 /**
- * Custom Form field for selecting a gender
+ * Custom Form field for selecting "AM" or "PM"
  */
-class Gender extends \JFormFieldList
+class AmPmFormField extends \JFormFieldRadio
 {
 
-    protected $type = 'Gender';
+    protected $type = 'AmPmFormField';
 
 
     /**
@@ -39,8 +39,8 @@ class Gender extends \JFormFieldList
         $options = parent::getOptions();
 
 		// Add field options to the result
-		$options[]= HTMLHelper::_('select.option', 'm', 'Male');
-        $options[]= HTMLHelper::_('select.option', 'f', 'Female');
+		$options[]= HTMLHelper::_('select.option', 'AM', 'AM');
+        $options[]= HTMLHelper::_('select.option', 'PM', 'PM');
 
 		// Return the resulting options (as html)
 		return $options;

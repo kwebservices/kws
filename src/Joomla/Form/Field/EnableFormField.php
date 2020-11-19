@@ -16,16 +16,16 @@ use \Joomla\CMS\Form\FormHelper;
 
 
 // Load the parent FormField class
-FormHelper::loadFieldClass('list');
+FormHelper::loadFieldClass('radio');
 
 
 /**
- * Custom Form field for selecting a value for the background-repeat CSS property
+ * Custom Form field for selecting a "Enable" or "Disable"
  */
-class CssRepeat extends \JFormFieldList
+class EnableFormField extends \JFormFieldRadio
 {
 
-    protected $type = 'CssRepeat';
+    protected $type = 'EnableFormField';
 
 
     /**
@@ -39,12 +39,8 @@ class CssRepeat extends \JFormFieldList
         $options = parent::getOptions();
 
 		// Add field options to the result
-        $options[]= HTMLHelper::_('select.option', 'no-repeat', 'No Repeat');
-        $options[]= HTMLHelper::_('select.option', 'repeat', 'Repeat');
-        $options[]= HTMLHelper::_('select.option', 'repeat-x', 'Repeat X');
-        $options[]= HTMLHelper::_('select.option', 'repeat-y', 'Repeat Y');
-        $options[]= HTMLHelper::_('select.option', 'space', 'Space');
-        $options[]= HTMLHelper::_('select.option', 'round', 'Round');
+		$options[]= HTMLHelper::_('select.option', '0', 'Disable');
+        $options[]= HTMLHelper::_('select.option', '1', 'Enable');
 
 		// Return the resulting options (as html)
 		return $options;

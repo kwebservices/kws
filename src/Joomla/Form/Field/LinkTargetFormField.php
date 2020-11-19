@@ -16,16 +16,16 @@ use \Joomla\CMS\Form\FormHelper;
 
 
 // Load the parent FormField class
-FormHelper::loadFieldClass('radio');
+FormHelper::loadFieldClass('list');
 
 
 /**
- * Custom Form field for selecting a ip address type
+ * Custom Form field for selecting a link target
  */
-class IpType extends \JFormFieldRadio
+class LinkTargetFormField extends \JFormFieldList
 {
 
-    protected $type = 'IpType';
+    protected $type = 'LinkTargetFormField';
 
 
     /**
@@ -39,8 +39,10 @@ class IpType extends \JFormFieldRadio
         $options = parent::getOptions();
 
 		// Add field options to the result
-		$options[]= HTMLHelper::_('select.option', '4', 'IPv4');
-        $options[]= HTMLHelper::_('select.option', '6', 'IPv6');
+        $options[]= HTMLHelper::_('select.option', '_blank', 'Blank');
+        $options[]= HTMLHelper::_('select.option', '_self', 'Self');
+        $options[]= HTMLHelper::_('select.option', '_parent', 'Parent');
+        $options[]= HTMLHelper::_('select.option', '_top', 'Top');
 
 		// Return the resulting options (as html)
 		return $options;

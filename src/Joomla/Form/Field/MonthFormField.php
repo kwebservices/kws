@@ -16,16 +16,16 @@ use \Joomla\CMS\Form\FormHelper;
 
 
 // Load the parent FormField class
-FormHelper::loadFieldClass('radio');
+FormHelper::loadFieldClass('list');
 
 
 /**
- * Custom Form field for selecting "AM" or "PM"
+ * Custom Form field for selecting a month of the year
  */
-class AmPm extends \JFormFieldRadio
+class MonthFormField extends \JFormFieldList
 {
 
-    protected $type = 'AmPm';
+    protected $type = 'MonthFormField';
 
 
     /**
@@ -39,8 +39,18 @@ class AmPm extends \JFormFieldRadio
         $options = parent::getOptions();
 
 		// Add field options to the result
-		$options[]= HTMLHelper::_('select.option', 'AM', 'AM');
-        $options[]= HTMLHelper::_('select.option', 'PM', 'PM');
+        $options[]= HTMLHelper::_('select.option', '1', 'January');
+        $options[]= HTMLHelper::_('select.option', '2', 'February');
+        $options[]= HTMLHelper::_('select.option', '3', 'March');
+        $options[]= HTMLHelper::_('select.option', '4', 'April');
+        $options[]= HTMLHelper::_('select.option', '5', 'May');
+        $options[]= HTMLHelper::_('select.option', '6', 'June');
+        $options[]= HTMLHelper::_('select.option', '7', 'July');
+        $options[]= HTMLHelper::_('select.option', '8', 'August');
+        $options[]= HTMLHelper::_('select.option', '9', 'September');
+        $options[]= HTMLHelper::_('select.option', '10', 'October');
+        $options[]= HTMLHelper::_('select.option', '11', 'November');
+        $options[]= HTMLHelper::_('select.option', '12', 'December');
 
 		// Return the resulting options (as html)
 		return $options;

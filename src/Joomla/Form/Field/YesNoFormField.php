@@ -22,10 +22,10 @@ FormHelper::loadFieldClass('radio');
 /**
  * Custom Form field for selecting a "Yes" or "No"
  */
-class YesNo extends \JFormFieldRadio
+class YesNoFormField extends \JFormFieldRadio
 {
 
-    protected $type = 'YesNo';
+    protected $type = 'YesNoFormField';
 
 
     /**

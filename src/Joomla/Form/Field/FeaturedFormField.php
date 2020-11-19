@@ -20,12 +20,12 @@ FormHelper::loadFieldClass('radio');
 
 
 /**
- * Custom Form field for selecting a "Published" or "Unpublished"
+ * Custom Form field for selecting a "Featured" or "Unfeatured"
  */
-class Published extends \JFormFieldRadio
+class FeaturedFormField extends \JFormFieldRadio
 {
 
-    protected $type = 'Published';
+    protected $type = 'FeaturedFormField';
 
 
     /**
@@ -39,8 +39,8 @@ class Published extends \JFormFieldRadio
         $options = parent::getOptions();
 
 		// Add field options to the result
-		$options[]= HTMLHelper::_('select.option', '0', 'Unpublished');
-        $options[]= HTMLHelper::_('select.option', '1', 'Published');
+		$options[]= HTMLHelper::_('select.option', '0', 'Unfeatured');
+        $options[]= HTMLHelper::_('select.option', '1', 'Featured');
 
 		// Return the resulting options (as html)
 		return $options;

@@ -16,16 +16,16 @@ use \Joomla\CMS\Form\FormHelper;
 
 
 // Load the parent FormField class
-FormHelper::loadFieldClass('list');
+FormHelper::loadFieldClass('radio');
 
 
 /**
- * Custom Form field for selecting a link target
+ * Custom Form field for selecting a "Show" or "Hide"
  */
-class LinkTarget extends \JFormFieldList
+class ShowFormField extends \JFormFieldRadio
 {
 
-    protected $type = 'LinkTarget';
+    protected $type = 'ShowFormField';
 
 
     /**
@@ -39,10 +39,8 @@ class LinkTarget extends \JFormFieldList
         $options = parent::getOptions();
 
 		// Add field options to the result
-        $options[]= HTMLHelper::_('select.option', '_blank', 'Blank');
-        $options[]= HTMLHelper::_('select.option', '_self', 'Self');
-        $options[]= HTMLHelper::_('select.option', '_parent', 'Parent');
-        $options[]= HTMLHelper::_('select.option', '_top', 'Top');
+		$options[]= HTMLHelper::_('select.option', '0', 'Hide');
+        $options[]= HTMLHelper::_('select.option', '1', 'Show');
 
 		// Return the resulting options (as html)
 		return $options;

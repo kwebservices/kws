@@ -16,16 +16,16 @@ use \Joomla\CMS\Form\FormHelper;
 
 
 // Load the parent FormField class
-FormHelper::loadFieldClass('radio');
+FormHelper::loadFieldClass('list');
 
 
 /**
- * Custom Form field for selecting a "Enable" or "Disable"
+ * Custom Form field for selecting a gender
  */
-class EnableDisable extends \JFormFieldRadio
+class GenderFormField extends \JFormFieldList
 {
 
-    protected $type = 'EnableDisable';
+    protected $type = 'GenderFormField';
 
 
     /**
@@ -39,8 +39,8 @@ class EnableDisable extends \JFormFieldRadio
         $options = parent::getOptions();
 
 		// Add field options to the result
-		$options[]= HTMLHelper::_('select.option', '0', 'Disable');
-        $options[]= HTMLHelper::_('select.option', '1', 'Enable');
+		$options[]= HTMLHelper::_('select.option', 'm', 'Male');
+        $options[]= HTMLHelper::_('select.option', 'f', 'Female');
 
 		// Return the resulting options (as html)
 		return $options;

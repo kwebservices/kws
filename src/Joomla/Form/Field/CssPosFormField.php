@@ -20,12 +20,12 @@ FormHelper::loadFieldClass('list');
 
 
 /**
- * Custom Form field for selecting a day of the week
+ * Custom Form field for selecting a value for the position CSS property
  */
-class WeekDay extends \JFormFieldList
+class CssPosFormField extends \JFormFieldList
 {
 
-    protected $type = 'WeekDay';
+    protected $type = 'CssPosFormField';
 
 
     /**
@@ -39,13 +39,11 @@ class WeekDay extends \JFormFieldList
         $options = parent::getOptions();
 
 		// Add field options to the result
-		$options[]= HTMLHelper::_('select.option', '0', 'Monday');
-        $options[]= HTMLHelper::_('select.option', '1', 'Tuesday');
-        $options[]= HTMLHelper::_('select.option', '2', 'Wedsnday');
-        $options[]= HTMLHelper::_('select.option', '3', 'Thursday');
-        $options[]= HTMLHelper::_('select.option', '4', 'Friday');
-        $options[]= HTMLHelper::_('select.option', '5', 'Saturday');
-        $options[]= HTMLHelper::_('select.option', '6', 'Sunday');
+        $options[]= HTMLHelper::_('select.option', 'static', 'Static');
+        $options[]= HTMLHelper::_('select.option', 'absolute', 'Absolute');
+        $options[]= HTMLHelper::_('select.option', 'fixed', 'Fixed');
+        $options[]= HTMLHelper::_('select.option', 'relative', 'Relative');
+        $options[]= HTMLHelper::_('select.option', 'sticky', 'Sticky');
 
 		// Return the resulting options (as html)
 		return $options;
