@@ -78,6 +78,17 @@ class MiscHelper extends Helper
 	}
 
 
+    /**
+	 * Method to determine if a given string is a valid email address
+	 * -------------------------------------------------------------------------
+	 * @param  string 	$value 	The value to test
+	 *
+	 * @return bool
+	 */
+	public static function isEmailAddress($value)
+	{
+		return (bool) Factory::getMailer()->ValidateAddress($value);
+	}
 
 
 }
