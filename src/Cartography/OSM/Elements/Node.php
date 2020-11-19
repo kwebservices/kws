@@ -51,7 +51,7 @@ class Node extends Element
 
         // Parse any tag elements
         foreach ($data->tag as $tag) {
-            $this[] = new Tag($tag);
+            $this->tags[] = new Tag($tag);
         }
     }
 
