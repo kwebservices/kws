@@ -37,12 +37,12 @@ class Relation extends Element
         }
 
         // Load values from XML attributes
-        $this->id        = $data['id'] ?? '';
-        $this->user      = $data['user'] ?? '';
-        $this->uid       = $data['uid'] ?? '';
-        $this->visible   = $data['visible'] ?? '';
-        $this->version   = $data['version'] ?? '';
-        $this->changeset = $data['changeset'] ?? '';
-        $this->timestamp = $data['timestamp'] ?? '';
+        $this->id        = (string) $data['id'] ?? '';
+        $this->user      = (string) $data['user'] ?? '';
+        $this->uid       = (string) $data['uid'] ?? '';
+        $this->visible   = (string) $data['visible'] ?? '';
+        $this->version   = (string) $data['version'] ?? '';
+        $this->changeset = (string) $data['changeset'] ?? '';
+        $this->timestamp = (string) $data['timestamp'] ?? '';
     }
 }

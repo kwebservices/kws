@@ -32,7 +32,7 @@ class Tag extends Element
         }
 
         // Load values from XML attributes
-        $this->key   = $data['key'] ?? '';
-        $this->value = $data['value'] ?? '';
+        $this->key   = (string) $data['key'] ?? '';
+        $this->value = (string) $data['value'] ?? '';
     }
 }

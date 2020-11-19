@@ -34,10 +34,10 @@ class Bounds extends Element
         }
 
         // Load values from XML attributes
-        $this->minlat = $data['minlat'] ?? '';
-        $this->minlon = $data['minlon'] ?? '';
-        $this->maxlat = $data['maxlat'] ?? '';
-        $this->maxlon = $data['maxlon'] ?? '';
+        $this->minlat = (string) $data['minlat'] ?? '';
+        $this->minlon = (string) $data['minlon'] ?? '';
+        $this->maxlat = (string) $data['maxlat'] ?? '';
+        $this->maxlon = (string) $data['maxlon'] ?? '';
     }
 
 }

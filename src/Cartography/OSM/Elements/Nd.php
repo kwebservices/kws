@@ -31,6 +31,6 @@ class Nd extends Element
         }
 
         // Load values from XML attributes
-        $this->ref = $data['ref'] ?? '';
+        $this->ref = (string) $data['ref'] ?? '';
     }
 }

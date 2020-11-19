@@ -31,8 +31,8 @@ class Member extends Element
         }
 
         // Load values from XML attributes
-        $this->type = $data['type'] ?? '';
-        $this->ref  = $data['ref'] ?? '';
+        $this->type = (string) $data['type'] ?? '';
+        $this->ref  = (string) $data['ref'] ?? '';
     }
 
 }
