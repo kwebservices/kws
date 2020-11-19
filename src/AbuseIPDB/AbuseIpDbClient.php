@@ -117,7 +117,7 @@ class AbuseIpDbClient
 
         // Process an return the result
         if ($response->getStatusCode() == 200) {
-            return json_decode($response->getBody(), true);
+            return json_decode($response->getBody());
         } else {
             return NULL;
         }
