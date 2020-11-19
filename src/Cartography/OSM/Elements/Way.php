@@ -20,6 +20,8 @@ class Way extends Element
     public $version   = '';
     public $changeset = '';
     public $timestamp = '';
+    public $nds       = [];
+    public $tags      = [];
 
 
     /**
@@ -33,7 +35,7 @@ class Way extends Element
     {
         // Make sure we have a SimpleXML object
         $data = ($xml instanceof \SimpleXMLElement) ?
-            $xml : new \SimpleXMLElement($xml); 
+            $xml : new \SimpleXMLElement($xml);
 
         // Load values from XML attributes
         $this->id        = (string) $data['id'] ?? '';
@@ -43,5 +45,15 @@ class Way extends Element
         $this->version   = (string) $data['version'] ?? '';
         $this->changeset = (string) $data['changeset'] ?? '';
         $this->timestamp = (string) $data['timestamp'] ?? '';
+
+        // Parse any nd elements
+        foreach ($data->nd as $nd) {
+            $this->nds[] = new Nd($nd);
+        }
+
+        // Parse any tag elements
+        foreach ($data->tag as $tag) {
+            $this->tags[] = new Tag($tag);
+        }
     }
 }
