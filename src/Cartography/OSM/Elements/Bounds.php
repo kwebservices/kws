@@ -29,9 +29,8 @@ class Bounds extends Element
     public function loadFromXML($xml) : void
     {
         // Make sure we have a SimpleXML object
-        if (!$xml instanceof \SimpleXMLElement) {
-            $data = new \SimpleXMLElement($xml);
-        }
+        $data = ($xml instanceof \SimpleXMLElement) ?
+            $xml : new \SimpleXMLElement($xml);
 
         // Load values from XML attributes
         $this->minlat = (string) $data['minlat'] ?? '';
