@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\OSM\Elements;
+namespace KWS\Cartography\OSM\Elements;
 
 
 class Nd extends Element

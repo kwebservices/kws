@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\OSM\Elements;
+namespace KWS\Cartography\OSM\Elements;
 
 
 abstract class Element
@@ -28,7 +28,7 @@ abstract class Element
 
     }
 
-    
+
     /**
      * Load element data from XML string or SimpleXML object
      * -------------------------------------------------------------------------
