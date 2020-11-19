@@ -8,10 +8,9 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Template;
+namespace KWS\Joomla\Helper;
 
 use \Joomla\CMS\Factory;
-use \KWS\Joomla\Document\DocumentHelper;
 
 
 /**

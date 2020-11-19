@@ -10,8 +10,8 @@
 
 namespace KWS\Joomla\View\Administrator;
 
-use \KWS\Joomla\Component\ComponentHelper;
-use \KWS\Joomla\Menu\MenuHelper;
+use \KWS\Joomla\Helper\ComponentHelper;
+use \KWS\Joomla\Helper\MenuHelper;
 use \Joomla\CMS\MVC\View\HtmlView;
 
 

@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\User;
+namespace KWS\Joomla\Helper;
 
 use \Joomla\CMS\Factory;
 

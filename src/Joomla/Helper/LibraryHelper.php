@@ -8,12 +8,12 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla\Form;
+namespace KWS\Joomla\Helper;
 
 
 /**
- * Helper/utility class for working with Joomla forms
+ * Helper/utility class for working with library extensions
  */
-class FormHelper
+class LibraryHelper
 {
 }
