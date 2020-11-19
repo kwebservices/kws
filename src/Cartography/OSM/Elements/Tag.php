@@ -31,7 +31,7 @@ class Tag extends Element
             $xml : new \SimpleXMLElement($xml);
 
         // Load values from XML attributes
-        $this->key   = (string) $data['key'] ?? '';
-        $this->value = (string) $data['value'] ?? '';
+        $this->key   = (string) $data['k'] ?? '';
+        $this->value = (string) $data['v'] ?? '';
     }
 }
