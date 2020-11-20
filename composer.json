@@ -19,7 +19,8 @@
         "dompdf/dompdf": "^0.8.5",
         "scssphp/scssphp": "^1.0",
         "league/csv": "^9.6",
-        "league/flysystem-ziparchive": "^1.0"
+        "league/flysystem-ziparchive": "^1.0",
+        "league/uri": "^6.3"
     },
 
     "autoload": {
