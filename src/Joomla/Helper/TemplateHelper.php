@@ -64,8 +64,8 @@ class TemplateHelper extends Helper
         // Init some class variables
         $this->template = Factory::getApplication()->getTemplate(true);
         $this->document = Factory::getDocument();
-        $this->basePath = JPATH_THEMES . DIRECTORY_SEPARATOR . $this->template->template;
-        $this->baseUrl  = Factory::getUri()->base() . 'templates/'. $this->template->template;
+        $this->basePath = JPATH_THEMES . DIRECTORY_SEPARATOR . $this->getName();
+        $this->baseUrl  = Factory::getUri()->base() . 'templates/' . $this->getName();
     }
 
 
@@ -124,6 +124,31 @@ class TemplateHelper extends Helper
     public function setViewport(string $value) : void
     {
         $this->document->setMetaData('viewport', $value);
+    }
+
+
+    /**
+     * Get the name of the template
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function getName() : string
+    {
+        return $this->template->template;
+    }
+
+
+    /**
+     * Get the value of a given template parameter
+     * -------------------------------------------------------------------------
+     * @param  string       $path       Registry path (e.g view.articles.show)
+     * @param  null|mixed   $default    Default value if not found
+     *
+     * @return mixed
+     */
+    public function getParam(string $path, $default = null)
+    {
+        return $this->template->params->get($path, $default);
     }
 
 }
