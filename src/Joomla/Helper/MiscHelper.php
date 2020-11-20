@@ -91,4 +91,15 @@ class MiscHelper extends Helper
 	}
 
 
+    /**
+     * Check if we are on the home page (the default menu item is active)
+     * -------------------------------------------------------------------------
+     * @return bool
+     */
+    public static function isHomePage() : bool
+    {
+        return MenuHelper::getActive() == MenuHelper::getDefault();
+    }
+
+
 }
