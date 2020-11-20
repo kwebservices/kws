@@ -102,4 +102,15 @@ class MiscHelper extends Helper
     }
 
 
+    /**
+     * Get the global site name
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public static function getSiteName() : string
+    {
+        Factory::getConfig()->get('sitename');
+    }
+
+
 }
