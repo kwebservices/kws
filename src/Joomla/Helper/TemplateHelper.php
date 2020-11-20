@@ -82,9 +82,10 @@ class TemplateHelper extends Helper
         // Remove the generator meta tag (if it exists)
         $this->document->setGenerator('');
 
-        // If we are on the home page set the meta title to the site name.
-        // Otherwise set the meta title to the page title (without site name)
+        // If on home page, set the document title and meta title to site name.
+        // Othewise set the meta title to the document title (without sitename)
         if (MiscHelper::isHomePage()) {
+            $this->document->setTitle(MiscHelper::getSiteName());
             $this->document->setMetaData('title', MiscHelper::getSiteName());
         } else {
             $this->document->setMetaData('title', DocumentHelper::getTitle());
