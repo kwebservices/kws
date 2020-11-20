@@ -109,7 +109,7 @@ class MiscHelper extends Helper
      */
     public static function getSiteName() : string
     {
-        Factory::getConfig()->get('sitename');
+        return Factory::getConfig()->get('sitename');
     }
 
 
