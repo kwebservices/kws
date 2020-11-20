@@ -76,6 +76,15 @@ class TemplateHelper extends Helper
      */
     public function initialise() : void
     {
+        // Set the document type to HTML5
+        $this->document->setHtml5(true);
+
+        // Remove the generator meta tag (if it exists)
+        $this->document->setGenerator('');
+
+        // Set the meta title to the page title (without the site name)
+        $this->document->setMetaData('title',
+            DocumentHelper::getTitle());
     }
 
 
@@ -102,6 +111,19 @@ class TemplateHelper extends Helper
     public function addScript(string $uri) : void
     {
         $this->document->addScript(UriHelper::resolve($this->baseUrl, $uri));
+    }
+
+
+    /**
+     * Set the the viewport meta tag
+     * -------------------------------------------------------------------------
+     * @param string    $value  New value for the viewport meta tag
+     *
+     * @return void
+     */
+    public function setViewport(string $value) : void
+    {
+        $this->document->setMetaData('viewport', $value);
     }
 
 }
