@@ -10,7 +10,9 @@
 
 namespace KWS\Joomla\Helper;
 
+use \KWS\Helper\UriHelper;
 use \Joomla\CMS\Factory;
+
 
 
 /**
@@ -74,6 +76,32 @@ class TemplateHelper extends Helper
      */
     public function initialise() : void
     {
+    }
+
+
+    /**
+     * Add an external stylesheet to the document
+     * -------------------------------------------------------------------------
+     * @param string    $uri    Absolute or relative uri to template's base url
+     *
+     * @return void
+     */
+    public function addStylesheet(string $uri) : void
+    {
+        $this->document->addStylesheet(UriHelper::resolve($this->baseUrl, $uri));
+    }
+
+
+    /**
+     * Add an external script to the document
+     * -------------------------------------------------------------------------
+     * @param string    $uri    Absolute or relative uri to template's base url
+     *
+     * @return void
+     */
+    public function addScript(string $uri) : void
+    {
+        $this->document->addScript(UriHelper::resolve($this->baseUrl, $uri));
     }
 
 }
