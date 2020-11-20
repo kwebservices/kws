@@ -64,8 +64,8 @@ class TemplateHelper extends Helper
         // Init some class variables
         $this->template = Factory::getApplication()->getTemplate(true);
         $this->document = Factory::getDocument();
-        $this->basePath = JPATH_THEMES . DIRECTORY_SEPARATOR . $this->getName();
-        $this->baseUrl  = Factory::getUri()->base() . 'templates/' . $this->getName();
+        $this->basePath = JPATH_THEMES . DIRECTORY_SEPARATOR . $this->getName() . '/';
+        $this->baseUrl  = Factory::getUri()->base() . 'templates/' . $this->getName() . '/';
     }
 
 
