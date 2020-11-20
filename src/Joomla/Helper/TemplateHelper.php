@@ -64,7 +64,7 @@ class TemplateHelper extends Helper
         // Init some class variables
         $this->template = Factory::getApplication()->getTemplate(true);
         $this->document = Factory::getDocument();
-        $this->basePath = JPATH_THEMES . DIRECTORY_SEPARATOR . $this->getName() . '/';
+        $this->basePath = JPATH_THEMES . DIRECTORY_SEPARATOR . $this->getName();
         $this->baseUrl  = Factory::getUri()->base() . 'templates/' . $this->getName() . '/';
     }
 
@@ -82,9 +82,14 @@ class TemplateHelper extends Helper
         // Remove the generator meta tag (if it exists)
         $this->document->setGenerator('');
 
-        // Set the meta title to the page title (without the site name)
-        $this->document->setMetaData('title',
-            DocumentHelper::getTitle());
+        // If we are on the home page set the meta title to the site name.
+        // Otherwise set the meta title to the page title (without site name)
+        if (MiscHelper::isHomePage()) {
+            $this->document->setMetaData('title', MiscHelper::getSiteName());
+        } else {
+            $this->document->setMetaData('title', DocumentHelper::getTitle());
+        }
+
     }
 
 
