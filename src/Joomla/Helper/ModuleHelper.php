@@ -18,17 +18,65 @@ use \Joomla\CMS\Helper\ModuleHelper AS JModuleHelper;
  * Base class for creating module helpers.
  */
 class ModuleHelper extends Helper
-{
+{    
+        
+    /**
+     * ID of the module in the database
+     *
+     * @var int
+     */
+    public $id = 0;
+    
+
+    /**
+     * Title given to the module
+     *
+     * @var string
+     */
+    public $title = '';
+
+        
+    /**
+     * Name of the module without "mod_" prefix
+     *
+     * @var string
+     */
+    public $name = '';
+
+        
+    /**
+     * Position for the module to be rendered
+     *
+     * @var string
+     */
+    public $position = '';
+        
+
+    /**
+     * Values for all the module's parameters
+     *
+     * @var undefined
+     */
+    public $params = null;
+
     
     /**
-     * Copy of the original module data.
+     * Layout to be rendered
      *
-     * @var \stdClass
+     * @var string
      */
-    protected $module = null;
+    public $layout = '';
+
+            
+    /**
+     * File path to the layout to be rendered
+     *
+     * @var string
+     */
+    public $layoutPath = '';
 
 
- 
+   
     /**
      * Initialises new instances of this class
      * -------------------------------------------------------------------------
@@ -37,9 +85,19 @@ class ModuleHelper extends Helper
     public function __construct($module)
     {
         // Initialise some class variables    
-        $this->module = $module;
-        $this->module->params = new Registry($this->module->params);
+        $this->id       = $module->id;
+        $this->title    = $module->title;
+        $this->name     = $module->name;
+        $this->position = $module->position;
+        $this->params   = new Registry($module->params);        
+        $this->layout   = $this->params->get('layout', 'default');        
+
+        $this->layoutPath = JModuleHelper::getLayoutPath(
+            'mod_' . $this->name, $this->layout);
+        
     }
+
+
 
 
 }
