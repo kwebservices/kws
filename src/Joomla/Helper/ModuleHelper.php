@@ -19,71 +19,10 @@ use \Joomla\CMS\Helper\ModuleHelper AS JModuleHelper;
  */
 class ModuleHelper extends Helper
 {
-
-    /**
-     * ID of the module in the site's database
-     *
-     * @var int
-     */
-    public $id = 0;
-
-
-    /**
-     * Title given to the module
-     *
-     * @var string
-     */
-    public $title = '';
-
-
-    /**
-     * Name of the module (with mod_)
-     *
-     * @var string
-     */
+   
     public $module = '';
 
-    /**
-     * Position the module will be displayed at
-     *
-     * @var string
-     */
-    public $position = '';
-
-
-    /**
-     * Show/hide the module's title
-     *
-     * @var bool
-     */
-    public $showtitle = false;
-
-
-    /**
-     * Contains the bulk of the modules params/config
-     *
-     * @var \Joomla\Registry\Registry
-     */
-    public $params = null;
-
-
-    /**
-     * Name of the module (without mod_)
-     *
-     * @var string
-     */
-    public $name = '';
-
-
-    /**
-     * Module layout to be displayed
-     *
-     * @var string
-     */
-    public $layout = 'default';
-
-
-
+ 
     /**
      * Initialises new instances of this class
      * -------------------------------------------------------------------------
@@ -91,39 +30,116 @@ class ModuleHelper extends Helper
      */
     public function __construct($module)
     {
-        // Initialise some class variables
-        $this->id        = $module->id;
-        $this->title     = $module->title;
-        $this->module    = $module->module;
-        $this->position  = $module->position;
-        $this->showtitle = $module->showtitle;
-        $this->params    = new Registry($module->params);
-        $this->name      = $module->name;
-        $this->layout    = $this->params->get('layout', ':default');
+        // Initialise some class variables 
+        $this->module         = $module;
+        $this->module->params = new Registry($this->module->params);
+   
     }
 
 
     /**
-     * Get the html tag typ to use for the module's container element
+     * Get the database ID of the module
+     * -------------------------------------------------------------------------
+     * @return int
+     */
+    public function getId() : int
+    {        
+        return $this->module->id;
+    }
+   
+        
+    /**
+     * Get the title that has been given to the module
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getContainerTag()
+    public function getTitle() : string
     {
-        $result = $this->params->get('module_tag', 'div');
-        return $result;
+        return $this->module->title;
+    }
+    
+               
+    /**
+     * Get the name of the module, with/without the "mod_" prefix
+     * -------------------------------------------------------------------------
+     * @param  bool     $prefix     Include the "mod_" prefix
+     * @return string
+     */
+    public function getName(bool $prefix = true) : string
+    {
+        return ($prefix) ? $this->module->module : $this->module->name;
+    }
+
+    
+    /**
+     * Get the position the module should be displayed at
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function getPosition() : string
+    {
+        return $this->module->position;
     }
 
 
     /**
-     * Get an css ID, typically used on the module container element
+     * Gets the value of a given module parameter
+     * -------------------------------------------------------------------------
+     * @param  string   $path       Registry path (e.g view.articles.show)       
+     * @param  mixed    $default    Default value if not found
+     * @return mixed
+     */
+    public function getParam(string $path, $default = null)
+    {
+        return $this->module->params->get($path, $default);
+    }
+
+        
+    /**
+     * Get the name of the module layout to render
      * -------------------------------------------------------------------------
      * @return string
      */
-    public function getContainerId()
+    public function getLayout() : string
     {
-        $result = $this->params->get('module_id', '');
-        $result = (empty($result)) ? "module-{$this->id}" : $result ;
+        return $this->getParam('layout', 'default');
+    }
+
+
+    /**
+     * Get a file path for a given module layout
+     * -------------------------------------------------------------------------
+     * @param  string   $layout     Name of a layout belonging to the module
+     *
+     * @return string
+     */
+    public function getLayoutPath($layout = null) : string
+    {
+        $layout = (empty($layout)) ? $this->getLayout() : $layout ;
+        return JModuleHelper::getLayoutPath($this->getName(), $layout);
+    }
+
+
+    /**
+     * Get the html tag type to use for the module's container element
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function getContainerTag() : string
+    {
+        return $this->getParam('module_tag', 'div');
+    }
+
+
+    /**
+     * Get the CSS ID to use for the module's container element
+     * -------------------------------------------------------------------------
+     * @return string
+     */
+    public function getContainerId() : string
+    {
+        $result = $this->getParam('module_id');
+        $result = (empty($result)) ? 'module-' . $this->getId() : result;       
         return $result;
     }
 
@@ -136,26 +152,19 @@ class ModuleHelper extends Helper
     public function getContainerClasses()
     {
         $result   = [];
-        $result[] = $this->module;
-        $result[] = $this->module . '_' . preg_replace('/^.*:/', '', $this->layout);
-        $result[] = $this->params->get('module_classes', '');
+        
+        $result[] = $this->getName();
+        
+        $result[] = $this->getName() . '_' . 
+            preg_replace('/^.*:/', '', $this->getLayout());
+        
+        $result[] = $this->getParam('module_classes', '');
+
         $result   = implode(' ', array_filter($result));
+
         return $result;
     }
-
-    /**
-     * Get a file path for a given module layout
-     * -------------------------------------------------------------------------
-     * @param  string   $layout     Name of a layout belonging to the module
-     *
-     * @return string
-     */
-    public function getLayoutPath($layout = null) : string
-    {
-        return JModuleHelper::getLayoutPath($this->module,
-            $layout ?? $this->layout);
-    }
-
+  
 
     /**
 	 * Get data as an object for rendering the module layout
