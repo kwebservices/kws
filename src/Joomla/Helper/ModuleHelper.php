@@ -49,7 +49,7 @@ class ModuleHelper extends Helper
      */
     public function getId() : int
     {
-        $this->module->id;
+        return $this->module->id;
     }
 
         
