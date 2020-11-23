@@ -70,7 +70,7 @@ class ModuleHelper extends Helper
      * @param  bool $prefix     Prefix the modules name with "mod_"
      * @return string
      */
-    public function getName(bool $prefix) : string
+    public function getName(bool $prefix = true) : string
     {
         return ($prefix) ? $this->module->module : $this->module->name;
     }
