@@ -23,6 +23,26 @@ class ItemModel extends AdminModel
 {
 
     /**
+     * Get a table object, load it if necessary.
+     * -------------------------------------------------------------------------
+     * @param  string 	$name   	The table name.
+     * @param  string 	$prefix 	The class prefix.
+     * @param  array  	$config 	Configuration array for table.
+     * 
+     * @return \Joomla\CMS\Table\Table
+     */
+    public function getTable($name = '', $prefix = '', $config = [])
+    {       
+        if (empty($prefix)) {
+            $prefix = ucfirst(preg_replace('|com_(.*)|', 
+                '$1Table', $this->option));
+        }
+
+        return parent::getTable($name, $prefix, $config);
+    }
+
+
+    /**
      * Get a form for the model
      * -------------------------------------------------------------------------
      * @param  array    $data       Data for the form.
