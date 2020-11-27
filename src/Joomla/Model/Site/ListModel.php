@@ -18,6 +18,28 @@ use \Joomla\CMS\MVC\Model\ListModel AS JListModel;
  */
 class ListModel extends JListModel
 {
+    
+    /**
+     * Get a JDatabaseQuery object for retrieving the dataset from database
+     * -------------------------------------------------------------------------
+     * @return \JDatabaseQuery  
+     */
+    protected function getListQuery()
+    {
+        // Initialise some local variables        
+        $database = $this->getDbo();
+        $query    = parent::getListQuery();
+
+        // Add the order by clause
+        $ordering   = $database->escape($this->getState('list.ordering'));
+        $direction  = $database->escape($this->getState('list.direction'));
+        if (!empty($ordering) and !empty($direction))
+            $query->order($ordering . ' ' . $direction);
+
+        // Return the result
+        return $query;
+    }
+
 
     /**
      * Get the current ordering column
