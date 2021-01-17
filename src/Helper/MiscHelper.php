@@ -65,6 +65,8 @@ class MiscHelper extends Helper
         $dompdf = new Dompdf();
         $dompdf->loadHtml($html);
         $dompdf->setPaper($size, $orientation);
+        $dompdf->setIsRemoteEnabled(true);
+        $dompdf->setIsPhpEnabled(true);
         $dompdf->render();
         return $dompdf->output();
     }
