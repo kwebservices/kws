@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\FuelPHP\Orm;
+namespace KWS\Legacy\FuelPHP\Orm;
 
 
 

@@ -8,7 +8,7 @@
  * =============================================================================
  */
 
-namespace KWS\FuelPHP\Controller;
+namespace KWS\Legacy\FuelPHP\Controller;
 
 
 /**
