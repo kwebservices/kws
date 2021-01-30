@@ -14,7 +14,6 @@ use \KWS\Helper\UriHelper;
 use \Joomla\CMS\Factory;
 
 
-
 /**
  * Helper/utility class for working with template extensions
  */
@@ -39,7 +38,7 @@ class TemplateHelper extends Helper
 
     /**
      * Absolute path to the template's folder
-     * -------------------------------------------------------------------------
+     * 
      * @var string
      */
     public $basePath = '';
@@ -47,7 +46,7 @@ class TemplateHelper extends Helper
 
     /**
      * Base URL to the template's folder
-     * -------------------------------------------------------------------------
+     * 
      * @var string
      */
     public $baseUrl = '';
@@ -62,77 +61,136 @@ class TemplateHelper extends Helper
     public function __construct()
     {
         // Init some class variables
-        $this->template = Factory::getApplication()->getTemplate(true);
         $this->document = Factory::getDocument();
+        $this->template = Factory::getApplication()->getTemplate(true);        
         $this->basePath = JPATH_THEMES . DIRECTORY_SEPARATOR . $this->getName();
         $this->baseUrl  = Factory::getUri()->base() . 'templates/' . $this->getName() . '/';
     }
 
-
+    
     /**
-     * Initialise the helper/template
+     * Add an external css stylesheet to the document
      * -------------------------------------------------------------------------
+     * @param  mixed $url   Absolute or relative uri to template's base url
      * @return void
      */
-    public function initialise() : void
+    public function addExternalCss(string $url) : void
     {
-        // Set the document type to HTML5
-        $this->document->setHtml5(true);
-
-        // Remove the generator meta tag (if it exists)
-        $this->document->setGenerator('');
-
-        // If on home page, set the document title and meta title to site name.
-        // Othewise set the meta title to the document title (without sitename)
-        if (MiscHelper::isHomePage()) {
-            $this->document->setTitle(MiscHelper::getSiteName());
-            $this->document->setMetaData('title', MiscHelper::getSiteName());
-        } else {
-            $this->document->setMetaData('title', DocumentHelper::getTitle());
-        }
-
+        $url = UriHelper::resolve($this->baseUrl, $url);
+        $this->document->addStylesheet($url);
     }
 
-
+        
     /**
-     * Add an external stylesheet to the document
+     * Add internal css to the document head section
      * -------------------------------------------------------------------------
-     * @param string    $uri    Absolute or relative uri to template's base url
-     *
+     * @param  mixed $css   CSS code to be added
      * @return void
      */
-    public function addStylesheet(string $uri) : void
+    public function addInternalCss(string $css) : void
     {
-        $this->document->addStylesheet(UriHelper::resolve($this->baseUrl, $uri));
+        $this->document->addStyleDeclaration($css);
     }
 
-
+    
     /**
      * Add an external script to the document
      * -------------------------------------------------------------------------
-     * @param string    $uri    Absolute or relative uri to template's base url
-     *
+     * @param  mixed $url   Absolute or relative uri to template's base url
      * @return void
      */
-    public function addScript(string $uri) : void
+    public function addExternalScript(string $url) : void
     {
-        $this->document->addScript(UriHelper::resolve($this->baseUrl, $uri));
+        $url = UriHelper::resolve($this->baseUrl, $url);
+        $this->document->addScript($url);        
     }
 
+    
+    /**
+     * Add internal script to the document
+     * -------------------------------------------------------------------------
+     * @param  mixed $script    Javascript to be added
+     * @return void
+     */
+    public function addInternalScript(string $script) : void
+    {
+        $this->document->addScriptDeclaration($script);
+    }
 
+    
+    /**
+     * Set the document to render a HTML5 doctype
+     * -------------------------------------------------------------------------
+     * @return void
+     */
+    public function setHtml5DocType() : void
+    {
+        $this->document->setHtml5(true);
+    }
+
+    
+    /**
+     * Remove the generator meta tag that is automatically added by Joomla
+     * -------------------------------------------------------------------------
+     * @return void
+     */
+    public function removeGeneratorMetaTag() : void
+    {
+        $this->document->setGenerator('');
+    }
+    
+    
+    /**
+     * Set the page/document title to the site name. This can be handy 
+     * on the home page
+     * -------------------------------------------------------------------------
+     * @return void
+     */
+    public function setPageTitleToSitename() : void
+    {
+        $this->document->setTitle(MiscHelper::getSiteName());
+    }
+
+    
+    /**
+     * Set the title meta tag. If no value is given than the title meta tag 
+     * will be set to the page title.
+     * -------------------------------------------------------------------------
+     * @param  mixed $value     New value for the title meta tag
+     * @return void
+     */
+    public function setMetaTitle(string $value = null) : void
+    {        
+        $value = $value ?? DocumentHelper::getTitle();
+        $this->setMetaTag('title', $value);
+    }
+
+        
     /**
      * Set the the viewport meta tag
      * -------------------------------------------------------------------------
-     * @param string    $value  New value for the viewport meta tag
-     *
+     * @param  mixed $value     New value for the viewport meta tag
      * @return void
      */
-    public function setViewport(string $value) : void
+    public function setViewPort(string $value) : void
     {
-        $this->document->setMetaData('viewport', $value);
+        $this->setMetaTag('viewport', $value);
     }
 
+    
+    /**
+     *  Set the value of any meta tag
+     * -------------------------------------------------------------------------
+     * @param  mixed $name      Name of the meta tag
+     * @param  mixed $value     New value for the meta tag
+     * @return void
+     */
+    public function setMetaTag(string $name, string $value) : void
+    {
+        $this->document->setMetaData($name, $value);
+    }
 
+    
     /**
      * Get the name of the template
      * -------------------------------------------------------------------------
@@ -142,19 +200,41 @@ class TemplateHelper extends Helper
     {
         return $this->template->template;
     }
-
-
+    
+     
     /**
      * Get the value of a given template parameter
      * -------------------------------------------------------------------------
-     * @param  string       $path       Registry path (e.g view.articles.show)
-     * @param  null|mixed   $default    Default value if not found
-     *
-     * @return mixed
+     * @param  mixed $path      Registry path (e.g view.articles.show)
+     * @param  mixed $default    Default value if not found
+     * @return void
      */
     public function getParam(string $path, $default = null)
     {
         return $this->template->params->get($path, $default);
+    }
+
+
+    /**
+     * Initialise the helper/template
+     * -------------------------------------------------------------------------
+     * @return void
+     */
+    public function initialise() : void
+    {      
+        // Set the document type to HTML5
+        $this->setHtml5DocType();
+
+        // Remove the generator meta tag (if it exists)
+        $this->removeGeneratorMetaTag();
+
+        // If on home page, use the site name for the page title
+        if (MiscHelper::isHomePage()) {
+            $this->setPageTitleToSitename();
+        }
+
+        // Set the the meta title tag to the page title
+        $this->setMetaTitle();
     }
 
 }
