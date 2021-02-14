@@ -79,7 +79,7 @@ class Entity
      */
     public function __set($name, $value)
     {        
-        if (array_key_exists($name, $this->fields)) {
+        if (in_array($name, $this->fields)) {
             if (is_null($value)) {
                 unset($this->data[$name]);
             } else {
@@ -97,7 +97,7 @@ class Entity
      */
     public function __get($name)
     {
-        if (array_key_exists($name, $this->fields)) {
+        if (in_array($name, $this->fields)) {
             return $this->data[$name] ?? null;
         }
 
