@@ -140,7 +140,7 @@ class Entity
         $this->db->reset_query();
         $result = $this->db->get_where($this->table, [$this->pk => $id]);
 
-        if ($result->num_rows() = 0) {
+        if ($result->num_rows() == 0) {
             return false;
         }
         
