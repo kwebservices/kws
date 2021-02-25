@@ -10,6 +10,7 @@
 
 namespace KWS\Joomla3\Controller\Admin;
 
+
 use Joomla\CMS\MVC\Controller\BaseController;
 
 
@@ -19,4 +20,3 @@ use Joomla\CMS\MVC\Controller\BaseController;
 class GenericController extends BaseController
 {
 }
-

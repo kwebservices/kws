@@ -27,11 +27,9 @@ class NestedItemModel extends ItemModel
     public function save($data)
     {
         // Initialise some local variables
-        $table  = $this->getTable();        
-		$isNew = true;
-        
-        $pk = (!empty($data['id'])) ? $data['id'] : 
-            (int) $this->getState($this->getName() . '.id');
+        $table      = $this->getTable();
+        $pk         = (!empty($data['id'])) ? $data['id'] : (int) $this->getState($this->getName() . '.id');
+		$isNew      = true;
 
         // Load the row if saving an existing category.
 		if ($pk > 0) {

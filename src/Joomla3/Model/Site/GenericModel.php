@@ -8,13 +8,13 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla3\Model\Admin;
+namespace KWS\Joomla3\Model\Site;
 
 use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 
 
 /**
- * Base class for creating generic back-end models
+ * Base class for creating generic front-end models
  */
 class GenericModel extends BaseDatabaseModel
 {

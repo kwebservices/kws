@@ -10,9 +10,9 @@
 
 namespace KWS\Joomla3\Model\Admin;
 
-use \Joomla\CMS\MVC\Model\AdminModel;
-use \Joomla\CMS\Form\Form;
-use \Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Model\AdminModel;
+use Joomla\CMS\Form\Form;
+use Joomla\CMS\Factory;
 
 
 /**
@@ -20,13 +20,13 @@ use \Joomla\CMS\Factory;
  */
 class ItemModel extends AdminModel
 {
-        
+
     /**
      * Get a table object, load it if necessary.
      * -------------------------------------------------------------------------
-     * @param  string   $name      The table name. 
-     * @param  string   $prefix    The class prefix. 
-     * @param  mixed    $config    Configuration array for table. 
+     * @param  string 	$name   	The table name.
+     * @param  string 	$prefix 	The class prefix.
+     * @param  array  	$config 	Configuration array for table.
      * 
      * @return \Joomla\CMS\Table\Table
      */
@@ -73,10 +73,10 @@ class ItemModel extends AdminModel
         $application = Factory::getApplication();
 
         // Try to load the form data from the user state
-        $result = $application->getUserState($this->option . 
-            '.edit.' . $this->name .'.data', array());
+        $result = $application->getUserState($this->option . '.edit.' .
+            $this->name .'.data', array());
 
-        // If no data was found, try the getItem method
+        // If no data was found,  try the getItem method
         $result = (empty($result)) ? $this->getItem() : $result;
 
         // Return the result

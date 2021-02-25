@@ -8,14 +8,12 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla3\Model\Admin;
-
-use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+namespace KWS\Joomla3\Controller\Site;
 
 
 /**
- * Base class for creating generic back-end models
+ * Base class for creating item based front-end controllers
  */
-class GenericModel extends BaseDatabaseModel
+class ItemController extends GenericController
 {
 }

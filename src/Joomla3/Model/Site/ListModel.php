@@ -8,17 +8,17 @@
  * =============================================================================
  */
 
-namespace KWS\Joomla3\Model\Admin;
+namespace KWS\Joomla3\Model\Site;
 
 use Joomla\CMS\MVC\Model\ListModel AS JListModel;
 
 
 /**
- * Base class for creating list based back-end models
+ * Base class for creating list based front-end models
  */
 class ListModel extends JListModel
 {
-
+    
     /**
      * Get a JDatabaseQuery object for retrieving the dataset from database
      * -------------------------------------------------------------------------
@@ -60,6 +60,6 @@ class ListModel extends JListModel
     public function getDirection()
     {
         return $this->state->get('list.direction');
-    }    
+    }
 
 }
